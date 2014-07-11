@@ -23,7 +23,7 @@
 					  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123121911169316";
 					  fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));</script>
-					<div class="fb-like-box" data-href="http://www.facebook.com/FacebookDevelopers" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+					<div class="fb-like-box" data-href="http://www.facebook.com/AesirWorldCommunity" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
 				</div>
 			</div>
 
