@@ -18,7 +18,7 @@ return array(
 			'Password'   => '',
 			'Database'   => 'ragnarok',
 			'Persistent' => true,
-			'Timezone'   => null // Example: '+0:00' is UTC.
+			'Timezone'   => 'America/Sao_Paulo' // Example: '+0:00' is UTC.
 			// The possible values of 'Timezone' is as documented from the MySQL website:
 			// "The value can be given as a string indicating an offset from UTC, such as '+10:00' or '-6:00'."
 			// "The value can be given as a named time zone, such as 'Europe/Helsinki', 'US/Eastern', or 'MET'." (see below continuation!)
@@ -39,13 +39,13 @@ return array(
 			'Password'   => '',
 			'Database'   => 'ragnarok',
 			'Persistent' => true,
-			'Timezone'   => null // Possible values is as described in the comment in DbConfig.
+			'Timezone'   => 'America/Sao_Paulo' // Possible values is as described in the comment in DbConfig.
 		),
 		// Login server configuration.
 		'LoginServer'    => array(
 			'Address'  => '127.0.0.1',
 			'Port'     => 6900,
-			'UseMD5'   => true,
+			'UseMD5'   => false,
 			'NoCase'   => true, // Hercules account case-sensitivity; Default: Case-INsensitive (true).
 			'GroupID'  => 0,    // Default account group ID during registration.
 			//'Database' => 'ragnarok'

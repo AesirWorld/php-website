@@ -55,12 +55,12 @@ return array(
 		'character' => array(
 			'index'    => AccountLevel::LOWGM,
 			'view'     => AccountLevel::NORMAL,
-			'online'   => AccountLevel::ANYONE,
+			'online'   => AccountLevel::LOWGM,
 			'prefs'    => AccountLevel::NORMAL,
 			'changeslot' => AccountLevel::NORMAL,
 			'resetlook'  => AccountLevel::NORMAL,
 			'resetpos'   => AccountLevel::NORMAL,
-			'mapstats'   => AccountLevel::ANYONE,
+			'mapstats'   => AccountLevel::LOWGM,
 			'divorce'    => AccountLevel::NORMAL
 		),
 		'guild'     => array(
@@ -70,7 +70,7 @@ return array(
 			'view'     => AccountLevel::NORMAL
 		),
 		'castle'    => array(
-			'index'    => AccountLevel::ANYONE
+			'index'    => AccountLevel::LOWGM
 		),
 		'economy'   => array(
 			'index'    => AccountLevel::NORMAL
@@ -79,10 +79,10 @@ return array(
 			'index'    => AccountLevel::LOWGM
 		),
 		'ranking'   => array(
-			'character' => AccountLevel::ANYONE,
-			'guild'     => AccountLevel::ANYONE,
-			'zeny'      => AccountLevel::ANYONE,
-			'death'     => AccountLevel::ANYONE
+			'character' => AccountLevel::LOWGM,
+			'guild'     => AccountLevel::LOWGM,
+			'zeny'      => AccountLevel::LOWGM,
+			'death'     => AccountLevel::LOWGM
 		),
 		'item'      => array(
 			'index'    => AccountLevel::ANYONE,
@@ -98,7 +98,7 @@ return array(
 		'server'    => array(
 			'status'     => AccountLevel::ANYONE,
 			'status-xml' => AccountLevel::ANYONE,
-			'info'       => AccountLevel::ANYONE
+			'info'       => AccountLevel::LOWGM
 		),
 		'logdata'   => array(
 			'index'   => AccountLevel::ADMIN,
@@ -145,7 +145,7 @@ return array(
 			'*'        => AccountLevel::ANYONE
 		),
 		'woe'       => array(
-			'index'   => AccountLevel::ANYONE
+			'index'   => AccountLevel::LOWGM
 		),
 		'mail'      => array(
 			'index'   => AccountLevel::ADMIN
@@ -205,7 +205,7 @@ return array(
 		'SeeAccountID'       => AccountLevel::LOWGM,  // Minimum group level required to see Account ID on account view and character view pages.
 		'SeeUnknownItems'    => AccountLevel::LOWGM,  // Minimum group level required to see unidentified items as identified.
 		'AvoidSexChangeCost' => AccountLevel::LOWGM,  // Avoid paying cost (if any) for sex changes.
-		
+
 		'EditHigherPower'    => AccountLevel::NOONE,
 		'BanHigherPower'     => AccountLevel::NOONE
 	)
