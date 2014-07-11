@@ -5,11 +5,11 @@ if (!defined('FLUX_ROOT')) exit;
 if(isset($errorMessage)) return;
 
 				$query  = "SELECT `name`, `base_level` FROM `{$server->charMapDatabase}`.`char` ORDER BY `base_level` DESC LIMIT 10";
-                
+
                 $sth = $server->connection->getStatement($query);
-    
+
                 $sth->execute();
-    
+
                 $ranking = $sth->fetchAll();
 ?>
 				<div class="box2 ranking">
@@ -17,7 +17,7 @@ if(isset($errorMessage)) return;
 					<div class="content">
 					  <table class="ranking">
 						<tr>
-						  <td><span>Nome</span></td>
+						  <td><span>Name</span></td>
 						  <td><span>Level</span></td>
 						</tr>
 						<?php

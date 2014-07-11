@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 		</div>
 		<div class="right">
-		
+
 			<div style="height:85px">
 				<div style="float:left; margin-top:25px; margin-bottom:15px; margin-left:15px; font-size:15px;">
 					<div>Asas Rosadas</div>
@@ -11,7 +11,7 @@
 					<img alt="" src="" />
 				</div>
 			</div>
-		
+
 			<div class="box2">
 				<div class="title">Facebook</div>
 				<div class="content">
@@ -25,8 +25,8 @@
 					}(document, 'script', 'facebook-jssdk'));</script>
 					<div class="fb-like-box" data-href="http://www.facebook.com/FacebookDevelopers" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
 				</div>
-			</div>	
-		
+			</div>
+
 		</div>
         <div style="clear: both;"></div>
 	</div>
@@ -34,9 +34,9 @@
 <div class="bottom">
 	<div class="logo"></div>
 	<div class="text">
-	PORTALRAG.NET &copy; 2013 - TODOS OS DIREITOS RESERVADOS.<br/>
-	Ragnarok Online é um produto Gravity Corp. & LeeMyougjin<br/>
-	Website desenvolvido pela equipe do RagnaFoo e Creative Pixel.
+	AESIRWORLD.COM &copy; 2014<br/>
+	Ragnarok Online - Gravity Corp. & LeeMyougjin<br/>
+	Open-Source Project
 	</div>
 	<div class="logo2"></div>
 </div>

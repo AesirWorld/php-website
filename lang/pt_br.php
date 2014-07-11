@@ -1,5 +1,5 @@
 ﻿<?php
-return array(	
+return array(
 	// Generic/Misc.
 	'YesLabel'                => 'Sim',
 	'NoLabel'                 => 'Não',
@@ -54,7 +54,7 @@ return array(
 	'ItemCard1Label'          => 'Carta 1',
 	'ItemCard2Label'          => 'Carta 2',
 	'ItemCard3Label'          => 'Carta 3',
-	
+
 	// Module: account
 	// - account/changemail
 	'EmailChangeTitle'        => 'Alterar E-mail',
@@ -313,7 +313,7 @@ return array(
 	'XferLogCharNameLabel'    => 'Para o Personagem',
 	'XferLogNotReceived'      => 'Você não recebeu nenhuma transferência de crédito.',
 	'XferLogNotSent'          => 'Você não fez nenhuma transferência de crédito.',
-	
+
 	// Module: character
 	// - character/changeslot
 	// - character/index
@@ -343,20 +343,20 @@ return array(
 	'DivorceText3'            => 'Anéis de casamento também serão excluídos.',
 	'DivorceButton'           => 'Sim, fazê-lo por favor.',
 	'DivorceSuccessful'       => '%s já se divorciou!',
-	
+
 	// Module: cplog
 	// - cplog/index.php
 	// - cplog/login.php
 	// - cplog/paypal.php
 	// - cplog/resetpass.php
 	// - cplog/txnview.php
-	
+
 	// Module: donate
 	// - donate/complete
 	// - donate/history
 	// - donate/index
 	// - donate/trusted
-	
+
 	// Module: errors
 	// - errors/missing_action
 	'MissingActionTitle'      => 'Ação Inexistente',
@@ -372,12 +372,12 @@ return array(
 	'MissingViewActLabel'     => 'Ação:',
 	'MissingViewReqLabel'     => 'URL requerida:',
 	'MissingViewLocLabel'     => 'Localização do arquivo de sistema:',
-	
+
 	// Module: guild
 	// - guild/export
 	// - guild/index
 	// - guild/view
-	
+
 	// Module: history
 	// - history/cplogin
 	'HistoryCpLoginTitle'     => 'Logins no Painel de Controle',
@@ -421,7 +421,7 @@ return array(
 	'HistoryPassResetResetDate'   => 'Redefinir a data',
 	'HistoryPassResetResetIp'     => 'Redefinir o IP',
 	'HistoryNoPassResets'         => 'Nenhuma senha Redefinida encontradas.',
-	
+
 	// Module: ipban
 	// - ipban/add
 	'IpbanAddTitle'           => 'Banir IP',
@@ -472,20 +472,20 @@ return array(
 	'IpbanEnterUnbanReason'   => 'Por favor, digite uma razão para desbanir o(s) IP(s).',
 	'IpbanUnbanned'           => 'IP(s) selecionado(s) desbanido(s)!',
 	'IpbanUnbanFailed'        => 'Falha ao desbanir %d IP(s) especificado(s)!',
-	
+
 	// Module: item
 	// - item/add
 	// - item/copy
 	// - item/edit
 	// - item/index
 	// - item/view
-	
+
 	// Module: itemshop
 	// - itemshop/add
 	// - itemshop/delete
 	// - itemshop/edit
 	// - itemshop/imagedel
-	
+
 	// Module: logdata
 	// - logdata/chat
 	// - logdata/command
@@ -525,7 +525,7 @@ return array(
 	'ZenyLogTypeLabel'        => 'Tipo',
 	'ZenyLogAmountLabel'      => 'Valor',
 	'ZenyLogMapLabel'         => 'Mapa',
-	
+
 	// Module: mail
 	// - mail/index
 	'MailerTitle'             => 'Formulário de Email',
@@ -541,7 +541,7 @@ return array(
 	'MailerSubjectLabel'      => 'Assunto',
 	'MailerBodyLabel'         => 'Corpo da Mensagem',
 	'MailerBodyInfo'          => 'Corpo da mensagem está na sintaxe de Markdown.',
-	
+
 	// Module: main
 	// - main/index
 	'MainPageHeading'         => 'Flux Control Panel',
@@ -556,11 +556,11 @@ return array(
 	'PageNotFoundInfo'        => 'A página que você solicitou não foi encontrada. Por favor, verifique se o endereço está correto e tente novamente.',
 	// - main/preprocess
 	'DisallowedDuringWoE'     => 'A página que você solicitou não está disponível durante a GdE.',
-	
+
 	// Module: monster
 	// - monster/index
 	// - monster/view
-	
+
 	// Module: purchase
 	// - purchase/add
 	// - purchase/cart
@@ -569,12 +569,12 @@ return array(
 	// - purchase/index
 	// - purchase/pending
 	// - purchase/remove
-	
+
 	// Module: ranking
 	// - ranking/character
 	// - ranking/guild
 	// - ranking/zeny
-	
+
 	// Module: server
 	// - server/info
 	'ServerInfoTitle'         => 'Informação do Servidor',
@@ -596,20 +596,20 @@ return array(
 	'ServerStatusCharLabel'   => 'Character Server',
 	'ServerStatusMapLabel'    => 'Map Server',
 	'ServerStatusOnlineLabel' => 'Jogadores Online',
-	
+
 	// Module: service
 	// - service/tos
 	'TermsTitle'              => 'Termos de Serviço',
 	'TermsHeading'            => 'Termos de Serviço',
 	'TermsInfo'               => 'Por favor, leia tudo antes de criar a sua conta!',
 	'TermsInfo2'              => "PARA O ADMINISTRADOR DO PAINEL DE CONTROLE: Você pode adicionar os Termos de Serviço diretamente neste arquivo. A localização do arquivo é: %s",
-	
+
 	// Module: unauthorized
 	// - unauthorized/index
 	'UnauthorizedTitle'       => 'Não Autorizado',
 	'UnauthorizedHeading'     => 'Não Autorizado',
 	'UnauthorizedInfo'        => 'Você não está autorizado a ver essa página. <a href="%s">Redirecionando…</a>',
-	
+
 	// Module: woe
 	// - woe/index
 	'WoeTitle'                => 'Horários da Guerra do Emperium',
@@ -624,6 +624,18 @@ return array(
 	'SecuritySessionInvalid'  => 'Desculpe, a sessão expirou, tente novamente.',
 	'SecurityNeedSession'     => 'Desculpe, nenhuma sessão encontrada (tentativa Hack?)',
 	'SecurityNeedToken'       => 'Desculpe, nenhum sinal encontrado para identificar há ação (tentativa Hack ?)',
+
+    //Aesir Theme Related
+    'NewsLabel' => 'Notícias',
+    'CPLabel' => 'Painel de Controle',
+    'StoreLabel' => 'Loja',
+    'DayOfWeekSunday' => 'Domingo',
+    'DayOfWeekMonday' => 'Segunda',
+    'DayOfWeekTuesday' =>  'Terça',
+    'DayOfWeekWednesday' =>  'Quarta',
+    'DayOfWeekThursday' =>  'Quinta',
+    'DayOfWeekFriday' =>  'Sexta',
+    'DayOfWeekSaturday' =>  'Sábado',
 
 );
 ?>
