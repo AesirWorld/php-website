@@ -46,6 +46,10 @@ body {
     text-decoration: none;
     margin: 0px 25px;
 }
+.top .menu > a:hover {
+	color:#000;
+	transition: all 0.3s ease-out;
+}
 .top .login {
     position:relative;
 }
