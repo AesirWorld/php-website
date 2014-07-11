@@ -250,7 +250,7 @@
 -->
 		<div class="container">
 			<div class="left">
-				<div style="height:85px; font-size:18px;">
+				<div class="server_status" style="height:85px; font-size:18px;">
 					<div style="float:left; margin:10px 15px;">
 						<div style="margin:10px 0px">SERVER:<div class="status"></div></div>
 						<div style="margin:10px 0px">STAFF:<div class="status"></div></div>
