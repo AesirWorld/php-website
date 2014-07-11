@@ -1,6 +1,6 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3 hide_right_container">			
-	<div class="title">Detalhes <span class="text_highlight2">da Conta<span></div>
+<div class="box3 hide_right_container">
+	<div class="title"><?php echo htmlspecialchars(Flux::message('AccDetailsTitle')) ?><span></div>
 	<div class="content">
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
@@ -207,7 +207,7 @@
 						<?php echo htmlspecialchars($char->guild_name) ?>
 					<?php endif ?>
 				</td>
-			<?php else: ?>	
+			<?php else: ?>
 				<td colspan="2" align="center"><span class="not-applicable"><?php echo htmlspecialchars(Flux::message('NoneLabel')) ?></span></td>
 			<?php endif ?>
 			<td>

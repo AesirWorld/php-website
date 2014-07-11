@@ -636,5 +636,6 @@ return array(
 	'DayOfWeekThursday' =>  'Thursday',
 	'DayOfWeekFriday' =>  'Friday',
 	'DayOfWeekSaturday' =>  'Saturday',
+	'AccDetailsTitle' => 'Account Details'
 );
 ?>
