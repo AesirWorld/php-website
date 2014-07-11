@@ -7,6 +7,7 @@
 		<meta http-equiv="refresh" content="<?php echo $metaRefresh['seconds'] ?>; URL=<?php echo $metaRefresh['location'] ?>" />
 		<?php endif ?>
 		<title><?php echo Flux::config('SiteTitle'); if (isset($title)) echo ": $title" ?></title>
+		<link rel="icon" type="image/png" href="<?php echo $this->themePath('images/favicon.png') ?>" />
 		<link rel="stylesheet" href="<?php echo $this->themePath('global.css') ?>" type="text/css" media="screen" title="" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo $this->themePath('css/flux.css') ?>" type="text/css" media="screen" title="" charset="utf-8" />
 		<link href="<?php echo $this->themePath('css/flux/unitip.css') ?>" rel="stylesheet" type="text/css" media="screen" title="" charset="utf-8" />
@@ -227,6 +228,8 @@
 			</div>
 	  	</div>
         <?php endif; ?>
+
+		<div class="logo"></div>
 	</div>
 
 	<div class="middle">

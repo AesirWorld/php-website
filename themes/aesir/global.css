@@ -21,8 +21,14 @@ body {
 }
 .top {
     width: 960px;
-    height: 185px;
+    height: 235px;
     margin: 0 auto;
+}
+.top .logo {
+	background:url('images/logo-high-qual.png') no-repeat;
+	width:320px;
+	height:170px;
+	margin-top:5px;
 }
 .top .menu {
     width: 960px;
@@ -365,10 +371,11 @@ body {
     background: url(images/bottom-bg.png) no-repeat;
 }
 .bottom .logo {
-    width: 68px;
-    height: 63px;
-    background: url(images/logo-mini.png) no-repeat;
-    margin: 3px 20px;
+    width: 80px;
+    height: 43px;
+	background:url('images/logo-high-qual.png') no-repeat;
+	background-size: contain;
+    margin: 13px 20px;
     float: left;
 }
 .bottom .logo2 {
