@@ -194,7 +194,8 @@ return array(
 	'MenuItems' => array(
 		'Main Menu'   => array(
 			'Home'          => array('module' => 'main'),
-			'Forums'        => array('exturl' => 'http://www.fluxro.com/community'),
+			'Play'          => array('exturl' => 'http://play.aesirworld.com/'),
+			'Register'      => array('module' => 'account', 'action' => 'create'),
 		),
 		'Account'     => array(
 			'Register'      => array('module' => 'account', 'action' => 'create'),
