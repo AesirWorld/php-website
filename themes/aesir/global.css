@@ -101,6 +101,7 @@ body {
     color: #fff;
     margin-top: 6px;
     margin-bottom:10px;
+	cursor:pointer;
 }
 .top .login .panel strong {
     display:block;

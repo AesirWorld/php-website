@@ -636,6 +636,12 @@ return array(
     'DayOfWeekThursday' =>  'Quinta',
     'DayOfWeekFriday' =>  'Sexta',
     'DayOfWeekSaturday' =>  'Sábado',
-    'AccDetailsTitle' => 'Detalhes da Conta'
+    'AccDetailsTitle' => 'Detalhes da Conta',
+    'RegisterPageTitle' => 'Criar Conta',
+    'LoginInputUserLabel' => 'Usuário...',
+    'LoginInputPassLabel' => 'Senha...',
+    'LoginForgotPassLabel' => 'esqueceu sua senha?',
+    'LoginSubmitLabel' => 'entrar',
+    'LoginRegisterLabel' => 'cadastro',
 );
 ?>

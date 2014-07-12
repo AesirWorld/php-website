@@ -149,11 +149,11 @@
 			<div class="panel border-radius">
 		  		<form action="<?php echo $this->url('account', 'login', array('return_url' => $params->get('return_url'))) ?>" method="post">
 					<input type="hidden" name="server" value="FluxRO">
-					<input type="text" name="username" placeholder="Usuário..." />
-					<input type="password" name="password" placeholder="Senha..." />
-                    <div class="forgot">esqueceu sua senha?</div>
-                    <input type="submit" value="entrar" />
-                    <input type="button" value="cadastrar" />
+					<input type="text" name="username" pattern=".{4,}" required placeholder="<?php echo htmlspecialchars(Flux::message('LoginInputUserLabel')) ?>" />
+					<input type="password" name="password" pattern=".{4,}" required placeholder="<?php echo htmlspecialchars(Flux::message('LoginInputPassLabel')) ?>" />
+                    <div class="forgot" onclick="window.location='/account/resetpass';" style="cursor:pointer"><?php echo htmlspecialchars(Flux::message('LoginForgotPassLabel')) ?></div>
+                    <input type="submit" value="<?php echo htmlspecialchars(Flux::message('LoginSubmitLabel')) ?>" />
+                    <input type="button" value="<?php echo htmlspecialchars(Flux::message('LoginRegisterLabel')) ?>" onclick="window.location='/account/create';" />
 			  	</form>
 			</div>
 	  	</div>
@@ -229,7 +229,7 @@
 	  	</div>
         <?php endif; ?>
 
-		<div class="logo"></div>
+		<a href="/"><div class="logo"></div></a>
 	</div>
 
 	<div class="middle">
