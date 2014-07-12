@@ -2,7 +2,7 @@
 
 <div class="box3">
 	<div class="title"><?php echo htmlspecialchars(Flux::message('EmailChangeHeading')) ?></div>
-	<div class="content"></div>
+	<div class="content">
 	<?php if (!empty($errorMessage)): ?>
 	<p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 	<?php endif ?>
