@@ -1,6 +1,6 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 
-<div class="box3">
+<div class="box3 hide_right_container hide_left_container">
 	<div class="title">Contas</div>
 	<div class="content">
 	<p class="toggler"><a href="javascript:toggleSearchForm()"><?php echo htmlspecialchars(Flux::message('SearchLabel')) ?></a></p>
@@ -71,8 +71,8 @@
 			<?php echo $this->dateField('last_login_after') ?>
 			<label for="use_last_login_before">&mdash;</label>
 			<input type="checkbox" name="use_last_login_before" id="use_last_login_before"<?php if ($params->get('use_last_login_before')) echo ' checked="checked"' ?> />
-			<?php echo $this->dateField('last_login_before') ?>		
-			
+			<?php echo $this->dateField('last_login_before') ?>
+
 			<input type="submit" value="<?php echo htmlspecialchars(Flux::message('SearchButton')) ?>" />
 			<input type="button" value="<?php echo htmlspecialchars(Flux::message('ResetButton')) ?>" onclick="reload()" />
 		</p>

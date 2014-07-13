@@ -1,6 +1,6 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
-	<div class="title">Visualizando Personagem</div>
+<div class="box3 hide_right_container">
+	<div class="title">Viewing Character</div>
 	<div class="content">
 <?php if ($char): ?>
 <h3>Character Information for <?php echo htmlspecialchars($char->char_name) ?></h3>
@@ -132,7 +132,7 @@
 						<?php echo htmlspecialchars($char->guild_name) ?>
 					<?php endif ?>
 				</td>
-			<?php else: ?>	
+			<?php else: ?>
 				<td colspan="2"><span class="not-applicable">None</span></td>
 			<?php endif ?>
 		<th>Guild Position</th>
@@ -151,7 +151,7 @@
 		<td colspan="2">
 			<?php if ($char->party_name): ?>
 				<?php echo htmlspecialchars($char->party_name) ?>
-			<?php else: ?>	
+			<?php else: ?>
 				<span class="not-applicable">None</span>
 			<?php endif ?>
 		</td>
@@ -163,7 +163,7 @@
 				<?php else: ?>
 					<?php echo htmlspecialchars($char->party_leader_name) ?>
 				<?php endif ?>
-			<?php else: ?>	
+			<?php else: ?>
 				<span class="not-applicable">None</span>
 			<?php endif ?>
 		</td>
@@ -262,7 +262,7 @@
 							<?php echo htmlspecialchars($partyMember->guild_name) ?>
 						<?php endif ?>
 					</td>
-				<?php else: ?>	
+				<?php else: ?>
 					<td colspan="2" align="center"><span class="not-applicable">None</span></td>
 				<?php endif ?>
 				<td>
@@ -320,7 +320,7 @@
 						<?php echo htmlspecialchars($friend->guild_name) ?>
 					<?php endif ?>
 				</td>
-			<?php else: ?>	
+			<?php else: ?>
 				<td colspan="2"><span class="not-applicable">None</span></td>
 			<?php endif ?>
 			<td>

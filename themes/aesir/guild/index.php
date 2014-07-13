@@ -1,5 +1,5 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
+<div class="box3 hide_right_container hide_left_container">
 	<div class="title">Guildas</div>
 	<div class="content">
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
@@ -96,7 +96,7 @@
 		<td><?php echo number_format($guild->connectMem) ?></td>
 		<td><?php echo number_format($guild->maxMem) ?></td>
 		<td><?php echo number_format($guild->avgLevel) ?></td>
-		
+
 	</tr>
 	<?php endforeach ?>
 </table>
