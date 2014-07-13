@@ -35,7 +35,10 @@ if (!defined('FLUX_ROOT')) exit;
 	<?php endforeach; ?>
 </div>
 <?php else: ?>
+	<div class="box3">
+		<div class="title"><?php echo htmlspecialchars(Flux::message('NewsLabel')) ?></div>
 	<p>
 		<?php echo htmlspecialchars(Flux::message('NewsEmpty')) ?><br/><br/>
 	</p>
+	</div>
 <?php endif ?>
