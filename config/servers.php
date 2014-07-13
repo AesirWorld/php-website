@@ -14,7 +14,8 @@ return array(
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
 			'Hostname'   => '127.0.0.1',
-			'Username'   => 'root',
+			'Username'   => 'root
+			',
 			'Password'   => '',
 			'Database'   => 'ragnarok',
 			'Persistent' => true,
@@ -45,7 +46,7 @@ return array(
 		'LoginServer'    => array(
 			'Address'  => '127.0.0.1',
 			'Port'     => 6900,
-			'UseMD5'   => false,
+			'UseMD5'   => true,
 			'NoCase'   => true, // Hercules account case-sensitivity; Default: Case-INsensitive (true).
 			'GroupID'  => 0,    // Default account group ID during registration.
 			//'Database' => 'ragnarok'
