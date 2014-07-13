@@ -96,8 +96,8 @@ return array(
 			'view'     => AccountLevel::ANYONE
 		),
 		'server'    => array(
-			'status'     => AccountLevel::ANYONE,
-			'status-xml' => AccountLevel::ANYONE,
+			'status'     => AccountLevel::ADMIN,
+			'status-xml' => AccountLevel::ADMIN,
 			'info'       => AccountLevel::LOWGM
 		),
 		'logdata'   => array(
