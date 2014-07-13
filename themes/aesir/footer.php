@@ -4,11 +4,11 @@
 
 			<div style="height:85px">
 				<div style="float:left; margin-top:25px; margin-bottom:15px; margin-left:15px; font-size:15px;">
-					<div>Asas Rosadas</div>
+					<div>Kool-aid</div>
 					<div class="HelveticaB"><span style="font-size:30px">1,500</span> ROPS</div>
 				</div>
-				<div style="float:right; text-align:right; margin:20px 15px;">
-					<img alt="" src="" />
+				<div style="float:right; text-align:right; margin:2px 25px;">
+					<img alt="" src="<?php echo $this->themePath('images/kool-aid.png') ?>" width="60" height="80" />
 				</div>
 			</div>
 
