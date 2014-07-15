@@ -4,7 +4,6 @@ ob_clean();
 //General error status code
 header("HTTP/1.1 500 Internal Server Error");
 ?>
-<?php if (defined('__ERROR__') && $showExceptions): ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -51,6 +50,7 @@ header("HTTP/1.1 500 Internal Server Error");
 	</head>
 
 	<body>
+<?php if (defined('__ERROR__') && $showExceptions): ?>
 		<h2 class="heading">Critical Error</h2>
 
 		<p>An error was encountered during the lifetime of the application.</p>
@@ -82,10 +82,14 @@ header("HTTP/1.1 500 Internal Server Error");
 		<h2 class="heading">Exception Trace As String</h2>
 		<pre><?php echo htmlspecialchars(preg_replace('/PDO->__construct\\((.+?)\\)/', 'PDO->__construct(*hidden*)', $e->getTraceAsString())) ?></pre>
 		<?php endif ?>
-	</body>
-</html>
 <?php else: ?>
+<center>
+<img alt="" src="themes/aesir/images/logo-high-qual-shadowed.png"></img>
 <h2>Error</h2>
 <p>An error occurred while trying to process your request.</p>
-<p>Please try contacting an administrator: <a href="mailto:<?php echo htmlspecialchars($adminEmail) ?>"><?php echo htmlspecialchars($adminEmail) ?></a></p>
+<p>If the error persists, please try contacting our staff.</p>
+<p>It should be fixed soon.</p>
+</center>
 <?php endif ?>
+</body>
+</html>
