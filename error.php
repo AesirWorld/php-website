@@ -1,6 +1,6 @@
 <?php
-//Flush buffer
-ob_flush();
+//Reset buffer
+ob_clean();
 //General error status code
 header("HTTP/1.1 500 Internal Server Error");
 ?>
