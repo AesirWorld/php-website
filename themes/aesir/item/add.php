@@ -1,7 +1,5 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
-	<div class="title">Adicionando Item</div>
-	<div class="content">
+<h2>Add Item</h2>
 <p>The only required fields are the <em>Item ID</em>, <em>Identifier</em>, <em>Name</em> and <em>Type</em> fields.</p>
 <p><strong>Note:</strong> An empty <em>NPC Sell</em> price defaults to half of the buy price in-game.</p>
 <?php if (!empty($errorMessage)): ?>
@@ -9,6 +7,7 @@
 <?php endif ?>
 <form action="<?php echo $this->urlWithQs ?>" method="post">
 	<input type="hidden" name="additem" value="1" />
+	<?php echo Flux_Security::csrfGenerate('ItemAdd', true) ?>
 	<table class="vertical-table">
 		<tr>
 			<th><label for="item_id">Item ID</label></th>
@@ -45,22 +44,31 @@
 		<tr>
 			<th><label for="npc_sell">NPC Sell</label></th>
 			<td><input type="text" name="npc_sell" id="npc_sell" value="<?php echo htmlspecialchars($npcSell) ?>" /></td>
-			<th><label for="attack">Attack</label></th>
-			<td><input type="text" name="attack" id="attack" value="<?php echo htmlspecialchars($attack) ?>" /></td>
-		</tr>
-		<tr>
 			<th><label for="weapon_level">Weapon Level</label></th>
 			<td><input type="text" name="weapon_level" id="weapon_level" value="<?php echo htmlspecialchars($weaponLevel) ?>" /></td>
-			<th><label for="defense">Defense</label></th>
-			<td><input type="text" name="defense" id="defense" value="<?php echo htmlspecialchars($defense) ?>" /></td>
-
 		</tr>
 		<tr>
-			<th><label for="equip_level">Equip Level</label></th>
-			<td><input type="text" name="equip_level" id="equip_level" value="<?php echo htmlspecialchars($equipLevel) ?>" /></td>
-
+			<th><label for="defense">Defense</label></th>
+			<td><input type="text" name="defense" id="defense" value="<?php echo htmlspecialchars($defense) ?>" /></td>
 			<th><label for="range">Range</label></th>
 			<td><input type="text" name="range" id="range" value="<?php echo htmlspecialchars($range) ?>" /></td>
+		</tr>
+		<tr>
+			<th><label for="atk">ATK</label></th>
+			<td><input type="text" name="atk" id="atk" value="<?php echo htmlspecialchars($atk) ?>" /></td>
+			<th><label for="equip_level_min">Min Equip Level</label></th>
+			<td><input type="text" name="equip_level_min" id="equip_level_min" value="<?php echo htmlspecialchars($equipLevelMin) ?>" /></td>
+		</tr>
+		<tr>
+			<?php if($server->isRenewal): ?>
+			<th><label for="matk">MATK</label></th>
+			<td><input type="text" name="matk" id="matk" value="<?php echo htmlspecialchars($matk) ?>" /></td>
+			<?php else: ?>
+			<th> </th>
+			<td> </td>
+			<?php endif ?>
+			<th><label for="equip_level_max">Max Equip Level</label></th>
+			<td><input type="text" name="equip_level_max" id="equip_level_max" value="<?php echo htmlspecialchars($equipLevelMax) ?>" /></td>
 		</tr>
 		<tr>
 			<th><label>Refineable</label></th>
@@ -141,5 +149,3 @@
 		</tr>
 	</table>
 </form>
-</div>
-</div>

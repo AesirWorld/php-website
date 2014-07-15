@@ -1,15 +1,15 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
-	<div class="title">Modificar Item></div>
-	<div class="content">
+<h2>Modify Item</h2>
 <?php if ($item): ?>
 <p>The only required fields are the <em>Item ID</em>, <em>Identifier</em>, <em>Name</em> and <em>Type</em> fields.</p>
 <p><strong>Note:</strong> An empty <em>NPC Sell</em> price defaults to half of the buy price in-game.</p>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php endif ?>
-<form action="<?php echo $this->urlWithQs ?>" method="post">
+<form action="<?php echo $this->urlWithQs ?>" method="post" name="edit_item_form">
 	<input type="hidden" name="edititem" value="1" />
+	<?php echo Flux_Security::csrfGenerate('ItemEdit', true) ?>
+
 	<table class="vertical-table">
 		<tr>
 			<th><label for="item_id">Item ID</label></th>
@@ -22,11 +22,21 @@
 			<td><input type="text" name="name_english" id="name_english" value="<?php echo htmlspecialchars($identifier) ?>" /></td>
 			<th><label for="type">Type</label></th>
 			<td>
-				<select name="type" id="type">
+				<select name="type" id="type" onchange="if (this.options[this.selectedIndex].value.indexOf('-') != -1) document.edit_item_form.view.value=this.options[this.selectedIndex].value.substring(this.options[this.selectedIndex].value.indexOf('-')+1)">
 				<?php foreach (Flux::config('ItemTypes')->toArray() as $nameid => $typeName): ?>
-					<option value="<?php echo htmlspecialchars($nameid) ?>"<?php if ($nameid == $type) echo ' selected="selected"' ?>>
-						<?php echo htmlspecialchars($typeName) ?>
-					</option>
+					<?php $itemTypes2 = Flux::config('ItemTypes2')->toArray() ?>
+					<?php if (!array_key_exists($nameid, $itemTypes2)): ?>
+						<option value="<?php echo htmlspecialchars($nameid) ?>"<?php if ($nameid == $type) echo ' selected="selected"' ?>>
+							<?php echo htmlspecialchars($typeName) ?>
+						</option>
+					<?php endif ?>
+					<?php if (array_key_exists($nameid, $itemTypes2)): ?>
+						<?php foreach ($itemTypes2[$nameid] as $typeId2 => $typeName2): ?>
+						<option value="<?php echo $nameid ?>-<?php echo $typeId2 ?>"<?php if ($nameid == $type && $viewID == $typeId2) echo ' selected="selected"' ?>>
+							<?php echo htmlspecialchars($typeName . ' - ' . $typeName2) ?>
+						</option>
+						<?php endforeach ?>
+					<?php endif ?>
 				<?php endforeach ?>
 				</select>
 			</td>
@@ -46,8 +56,8 @@
 		<tr>
 			<th><label for="npc_sell">NPC Sell</label></th>
 			<td><input type="text" name="npc_sell" id="npc_sell" value="<?php echo htmlspecialchars($npcSell) ?>" /></td>
-			<th><label for="attack">Attack</label></th>
-			<td><input type="text" name="attack" id="attack" value="<?php echo htmlspecialchars($attack) ?>" /></td>
+			<th><label for="range">Range</label></th>
+			<td><input type="text" name="range" id="range" value="<?php echo htmlspecialchars($range) ?>" /></td>
 		</tr>
 		<tr>
 			<th><label for="weapon_level">Weapon Level</label></th>
@@ -57,11 +67,21 @@
 
 		</tr>
 		<tr>
-			<th><label for="equip_level">Equip Level</label></th>
-			<td><input type="text" name="equip_level" id="equip_level" value="<?php echo htmlspecialchars($equipLevel) ?>" /></td>
-
-			<th><label for="range">Range</label></th>
-			<td><input type="text" name="range" id="range" value="<?php echo htmlspecialchars($range) ?>" /></td>
+			<th><label for="atk">ATK</label></th>
+			<td><input type="text" name="atk" id="atk" value="<?php echo htmlspecialchars($atk) ?>" /></td>
+			<th><label for="equip_level_min">Min Equip Level</label></th>
+			<td><input type="text" name="equip_level_min" id="equip_level_min" value="<?php echo htmlspecialchars($equipLevelMin) ?>" /></td>
+		</tr>
+		<tr>
+			<?php if($server->isRenewal): ?>
+			<th><label for="matk">MATK</label></th>
+			<td><input type="text" name="matk" id="matk" value="<?php echo htmlspecialchars($matk) ?>" /></td>
+			<?php else: ?>
+			<th> </th>
+			<td> </td>
+			<?php endif ?>
+			<th><label for="equip_level_max">Max Equip Level</label></th>
+			<td><input type="text" name="equip_level_max" id="equip_level_max" value="<?php echo htmlspecialchars($equipLevelMax) ?>" /></td>
 		</tr>
 		<tr>
 			<th><label>Refineable</label></th>
@@ -75,7 +95,7 @@
 			<td colspan="3">
 				<select name="equip_locations" id="equip_locations">
 				<?php foreach (Flux::config('EquipLocationCombinations')->toArray() as $locId => $locName): ?>
-					<option value="<?php echo htmlspecialchars($locId) ?>"<?php if ($locId == $equipLoc) echo ' selected="selected"' ?>>
+					<option value="<?php echo htmlspecialchars($locId) ?>"<?php if ($locId == $equipLocs) echo ' selected="selected"' ?>>
 						<?php echo htmlspecialchars($locName) ?>
 					</option>
 				<?php endforeach ?>
@@ -141,5 +161,3 @@
 <?php else: ?>
 <p>No such item found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div>
-</div>

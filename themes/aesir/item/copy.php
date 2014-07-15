@@ -1,7 +1,5 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
-	<div class="title">Duplicar Item</div>
-	<div class="content">
+<h2>Duplicate Item</h2>
 <?php if ($item): ?>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
@@ -10,6 +8,8 @@
 <?php endif ?>
 <form action="<?php echo $this->urlWithQs ?>" method="post" class="generic-form">
 	<input type="hidden" name="copyitem" value="1" />
+	<?php echo Flux_Security::csrfGenerate('ItemCopy', true) ?>
+
 	<table class="generic-form-table">
 		<tr>
 			<th><label>Item Name (Item ID)</label></th>
@@ -22,7 +22,7 @@
 						(<?php echo htmlspecialchars($itemID) ?>)
 					<?php endif ?>
 				</p>
-				
+
 			</td>
 			<td></td>
 		</tr>
@@ -40,5 +40,3 @@
 <?php else: ?>
 <p>No such item found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div>
-</div>
