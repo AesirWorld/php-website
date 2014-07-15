@@ -2,7 +2,7 @@
 //Reset buffer
 ob_clean();
 //General error status code
-http_response_code(500);
+header("HTTP/1.1 500 Internal Server Error");
 ?>
 <?php if (defined('__ERROR__') && $showExceptions): ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
