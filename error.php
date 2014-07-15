@@ -84,7 +84,7 @@ header("HTTP/1.1 500 Internal Server Error");
 		<?php endif ?>
 <?php else: ?>
 <center>
-<img alt="" src="themes/aesir/images/logo-high-qual-shadowed.png"></img>
+<img alt="" src="/themes/aesir/images/logo-high-qual-shadowed.png"></img>
 <h2>Error</h2>
 <p>An error occurred while trying to process your request.</p>
 <p>If the error persists, please try contacting our staff.</p>
