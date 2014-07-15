@@ -197,7 +197,7 @@ return array(
 			'Play'          => array('exturl' => 'http://play.aesirworld.com/'),
 			'Register'      => array('module' => 'account', 'action' => 'create'),
 			'Items' => array('module' => 'item'),
-			'Mobs' => array('module' => 'item'),
+			'Mobs' => array('module' => 'monster'),
 		),
 		'Account'     => array(
 			'Register'      => array('module' => 'account', 'action' => 'create'),
