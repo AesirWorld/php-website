@@ -1,4 +1,9 @@
-<?php header("HTTP/1.1 500 Internal Server Error"); ?>
+<?php
+//Flush buffer
+ob_flush();
+//General error status code
+header("HTTP/1.1 500 Internal Server Error");
+?>
 <?php if (defined('__ERROR__') && $showExceptions): ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
