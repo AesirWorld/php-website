@@ -3,7 +3,8 @@ nginx_error.log
 __MACOSX
 .DS_Store
 
-data/*
+/data/logs
+/data/tmp
 
 config/servers.php
 config/application.php
