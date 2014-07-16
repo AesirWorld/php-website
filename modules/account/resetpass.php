@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: public, max-age=".Flux::config('CacheTimeHigh'));
+
 $title = Flux::message('ResetPassTitle');
 
 $serverNames    = $this->getServerNames();
@@ -10,7 +13,7 @@ if (count($_POST)) {
 	$userid    = $params->get('userid');
 	$email     = $params->get('email');
 	$groupName = $params->get('login');
-	
+
 	if (!$userid) {
 		$errorMessage = Flux::message('ResetPassEnterAccount');
 	}
@@ -46,7 +49,7 @@ if (count($_POST)) {
 				$sql .= "VALUES (?, ?, ?, NOW(), ?, 0)";
 				$sth  = $loginAthenaGroup->connection->getStatement($sql);
 				$res  = $sth->execute(array($code, $row->account_id, $row->user_pass, $_SERVER['REMOTE_ADDR']));
-				
+
 				if ($res) {
 					require_once 'Flux/Mailer.php';
 					$name = $loginAthenaGroup->serverName;

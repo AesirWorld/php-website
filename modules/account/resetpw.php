@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: private");
+
 $title = Flux::message('ResetPassButton');
 
 $account = $params->get('account');
@@ -55,7 +58,7 @@ if ($loginAthenaGroup->loginServer->config->getUseMD5()) {
 
 if (!$sth->execute(array($_SERVER['REMOTE_ADDR'], $newPassword, $reset->id))) {
 	$session->setMessageData(Flux::message('ResetPwFailed'));
-	$this->redirect();	
+	$this->redirect();
 }
 
 $sql = "UPDATE {$loginAthenaGroup->loginDatabase}.login SET user_pass = ? WHERE account_id = ?";

@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: private");
+
 $this->loginRequired();
 
 $title = Flux::message('EmailChangeTitle');
@@ -26,7 +29,7 @@ if (count($_POST)) {
 		$sql = "SELECT email FROM {$server->loginDatabase}.login WHERE email = ? LIMIT 1";
 		$sth = $server->connection->getStatement($sql);
 		$sth->execute(array($email));
-		
+
 		$row = $sth->fetch();
 		if ($row && $row->email) {
 			$errorMessage = Flux::message('EmailAlreadyRegistered');
@@ -37,14 +40,14 @@ if (count($_POST)) {
 		$code = md5(rand() + $session->account->account_id);
 		$ip   = $_SERVER['REMOTE_ADDR'];
 		$fail = false;
-		
+
 		if (Flux::config('RequireChangeConfirm')) {
 			$sql  = "INSERT INTO {$server->loginDatabase}.$emailChangeTable ";
 			$sql .= "(code, account_id, old_email, new_email, request_date, request_ip, change_done) ";
 			$sql .= "VALUES (?, ?, ?, ?, NOW(), ?, 0)";
 			$sth  = $server->connection->getStatement($sql);
 			$res  = $sth->execute(array($code, $session->account->account_id, $session->account->email, $email, $ip));
-			
+
 			if ($res) {
 				require_once 'Flux/Mailer.php';
 				$name = $session->loginAthenaGroup->serverName;
@@ -68,20 +71,20 @@ if (count($_POST)) {
 			else {
 				$fail = true;
 			}
-			
+
 		}
 		else {
 			$old  = $session->account->email;
 			$sql  = "UPDATE {$server->loginDatabase}.login SET email = ? WHERE account_id = ?";
 			$sth  = $server->connection->getStatement($sql);
-			
+
 			if ($sth->execute(array($email, $session->account->account_id))) {
 				$sql  = "INSERT INTO {$server->loginDatabase}.$emailChangeTable ";
 				$sql .= "(code, account_id, old_email, new_email, request_date, request_ip, change_date, change_ip, change_done) ";
 				$sql .= "VALUES (?, ?, ?, ?, NOW(), ?, NOW(), ?, 1)";
 				$sth  = $server->connection->getStatement($sql);
 				$res  = $sth->execute(array($code, $session->account->account_id, $old, $email, $ip, $ip));
-				
+
 				if ($res) {
 					$session->setMessageData(Flux::message('EmailAddressChanged'));
 					$this->redirect();
@@ -95,7 +98,7 @@ if (count($_POST)) {
 			}
 		}
 	}
-	
+
 	if (!empty($fail)) {
 		$errorMessage = Flux::message('EmailChangeFailed');
 	}

@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: public, max-age=".Flux::config('CacheTimeMid'));
+
 //if (!Flux::config('RequireEmailConfirm')) {
 //	$this->deny();
 //}
@@ -14,7 +17,7 @@ if (count($_POST)) {
 	$userid    = $params->get('userid');
 	$email     = $params->get('email');
 	$groupName = $params->get('login');
-	
+
 	if (!$userid) {
 		$errorMessage = Flux::message('ResendEnterUsername');
 	}

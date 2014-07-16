@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: public, max-age=".Flux::config('CacheTimeMid'));
+
 if (Flux::config('UseLoginCaptcha') && Flux::config('EnableReCaptcha')) {
 	require_once 'recaptcha/recaptchalib.php';
 	$recaptcha = recaptcha_get_html(Flux::config('ReCaptchaPublicKey'));

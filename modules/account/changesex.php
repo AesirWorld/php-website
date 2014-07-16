@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: private");
+
 $this->loginRequired();
 
 $title = Flux::message('GenderChangeTitle');
@@ -19,13 +22,13 @@ if (count($_POST)) {
 	if (!$hasNecessaryFunds || !$params->get('changegender')) {
 		$this->deny();
 	}
-	
+
 	$classes = array();
 	foreach ($session->loginAthenaGroup->athenaServers as $athenaServer) {
 		$sql = "SELECT COUNT(1) AS num FROM {$athenaServer->charMapDatabase}.`char` WHERE account_id = ? AND `class` IN (".implode(',', array_fill(0, count($badJobs), '?')).")";
 		$sth = $athenaServer->connection->getStatement($sql);
 		$sth->execute(array_merge(array($session->account->account_id), array_keys($badJobs)));
-		
+
 		if ($sth->fetch()->num) {
 			$errorMessage = sprintf(Flux::message('GenderChangeBadChars'), implode(', ', array_values($badJobs)));
 			break;

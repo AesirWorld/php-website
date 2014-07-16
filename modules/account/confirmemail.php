@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: private");
+
 $this->loginRequired();
 
 $title = Flux::message('EmailConfirmTitle');
@@ -43,7 +46,7 @@ if (!$sth->execute(array($_SERVER['REMOTE_ADDR'], $row->id))) {
 else {
 	$sql = "UPDATE {$server->loginDatabase}.login SET email = ? WHERE account_id = ?";
 	$sth = $server->connection->getStatement($sql);
-	
+
 	if (!$sth->execute(array($row->email, $account))) {
 		$session->setMessageData(Flux::message('EmailConfirmFailed'));
 		$this->redirect();

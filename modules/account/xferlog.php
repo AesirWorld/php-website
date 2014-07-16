@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: private");
+
 $this->loginRequired();
 
 $title = Flux::message('XferLogTitle');

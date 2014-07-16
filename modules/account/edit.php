@@ -1,6 +1,9 @@
 <?php
 if (!defined('FLUX_ROOT')) exit;
 
+//Cache
+header("Cache-Control: private");
+
 $this->loginRequired();
 
 $title = Flux::message('AccountEditTitle');
@@ -24,19 +27,19 @@ if ($account) {
 	if ($account->group_id > $session->account->group_id && !$auth->allowedToEditHigherPower) {
 		$this->deny();
 	}
-	
+
 	$isMine = $account->account_id == $session->account->account_id;
-	
+
 	if ($isMine) {
 		$title = Flux::message('AccountEditTitle2');
 	}
 	else {
 		$title = sprintf(Flux::message('AccountEditTitle3'), $account->userid);
 	}
-	
+
 	if (count($_POST)) {
 		$groups     = AccountLevel::getArray();
-	
+
 		$email      = trim($params->get('email'));
 		$gender     = trim($params->get('gender'));
 		$loginCount = (int)$params->get('logincount');
@@ -45,7 +48,7 @@ if ($account) {
 		$lastIP     = trim($params->get('last_ip'));
 		$group_id   = (int)$params->get('group_id');
 		$balance    = (int)$params->get('balance');
-		
+
 		if ($isMine && $account->group_id != $group_id) {
 			$errorMessage = Flux::message('CannotModifyOwnGroupID');
 		}
@@ -82,17 +85,17 @@ if ($account) {
 				'lastlogin'  => $lastLogin ? $lastLogin : $account->lastlogin,
 				'last_ip'    => $lastIP
 			);
-			
+
 			$sql  = "UPDATE {$server->loginDatabase}.login SET email = :email, ";
 			$sql .= "sex = :sex, logincount = :logincount, birthdate = :birthdate, lastlogin = :lastlogin, last_ip = :last_ip";
-			
+
 			if ($auth->allowedToEditAccountGroupID) {
 				$sql .= ", group_id = :group_id";
 				$bind['group_id'] = $group_id;
 			}
-			
+
 			$bind['account_id'] = $account->account_id;
-			
+
 			$sql .= " WHERE account_id = :account_id";
 			$sth  = $server->connection->getStatement($sql);
 			$sth->execute($bind);
@@ -101,7 +104,7 @@ if ($account) {
 				$deposit = $balance - $account->balance;
 				$session->loginServer->depositCredits($account->account_id, $deposit);
 			}
-			
+
 			$session->setMessageData(Flux::message('AccountModified'));
 			$this->redirect($this->url('account', 'view', array('id' => $account->account_id)));
 		}

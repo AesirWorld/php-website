@@ -58,6 +58,9 @@ if($_SERVER['REQUEST_URI'] == "/") {
 	$countryCode = isset($_SERVER["HTTP_CF_IPCOUNTRY"]) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "DEFAULT";
 	$langDefault = $matchCountryLang[$countryCode];
 
+	//Disable cache
+	header("Cache-Control: private, max-age=0, no-cache, must-revalidate");
+
 	if($langDefault) {
 		header("Location: ".$langDefault);
 	}
