@@ -14,7 +14,7 @@ class Flux_Authorization {
 	 * @var Flux_Authorization
 	 */
 	private static $auth;
-	
+
 	/**
 	 * Access configuration.
 	 *
@@ -22,7 +22,7 @@ class Flux_Authorization {
 	 * @var Flux_Config
 	 */
 	private $config;
-	
+
 	/**
 	 * Session data object.
 	 *
@@ -30,7 +30,7 @@ class Flux_Authorization {
 	 * @var Flux_SessionData
 	 */
 	private $session;
-	
+
 	/**
 	 * Construct new Flux_Authorization instance.
 	 *
@@ -43,7 +43,7 @@ class Flux_Authorization {
 		$this->config  = $accessConfig;
 		$this->session = $sessionData;
 	}
-	
+
 	/**
 	 * Get authorization instance, creates one if it doesn't already exist.
 	 *
@@ -57,9 +57,9 @@ class Flux_Authorization {
 		if (!self::$auth) {
 			self::$auth = new Flux_Authorization($accessConfig, $sessionData);
 		}
-		return self::$auth;	
+		return self::$auth;
 	}
-	
+
 	/**
 	 * Checks whether or not the current user is able to perform a particular
 	 * action based on his/her group level and id.
@@ -79,19 +79,19 @@ class Flux_Authorization {
 		if ($accessConfig instanceOf Flux_Config) {
 			foreach ($accessKeys as $accessKey) {
 				$accessLevel = $accessConfig->get($accessKey);
-			
+
 				if (!is_null($accessLevel)) {
 					$existentKeys[] = $accessKey;
-					
+
 					if ($accessLevel == AccountLevel::ANYONE || $accessLevel == $accountLevel ||
 						($accessLevel != AccountLevel::UNAUTH && $accessLevel <= $accountLevel)) {
-					
+
 						return true;
 					}
 				}
 			}
 		}
-		
+
 		if (empty($existentKeys)) {
 			return -1;
 		}
@@ -99,7 +99,7 @@ class Flux_Authorization {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Checks whether or not the current user is allowed to use a particular
 	 * feature based on his/her group level and id.
@@ -112,20 +112,20 @@ class Flux_Authorization {
 	{
 		$accessConfig = $this->config->get('features');
 		$accountLevel = $this->session->account->group_level;
-		
+
 		if (($accessConfig instanceOf Flux_Config)) {
 			$accessLevel = $accessConfig->get($featureName);
-			
+
 			if (!is_null($accessLevel) &&
 				($accessLevel == AccountLevel::ANYONE || $accessLevel == $accountLevel ||
 				($accessLevel != AccountLevel::UNAUTH && $accessLevel <= $accountLevel))) {
-			
+
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Provides convenient getters such as `allowedTo<FeatureName>' and
 	 * `getGroupLevelTo<FeatureName>'.
@@ -144,7 +144,7 @@ class Flux_Authorization {
 			}
 		}
 	}
-	
+
 	/**
 	 * Wrapper method for setting and getting values from the access config.
 	 *

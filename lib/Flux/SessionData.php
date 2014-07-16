@@ -74,7 +74,7 @@ class Flux_SessionData {
 	 */
 	private function initialize($force = false)
 	{
-		$keysToInit = array('username', 'serverName', 'athenaServerName', 'securityCode', 'theme');
+		$keysToInit = array('username', 'serverName', 'athenaServerName', 'securityCode');
 		foreach ($keysToInit as $key) {
 			if ($force || !$this->{$key}) {
 				$method = ucfirst($key);
@@ -158,11 +158,7 @@ class Flux_SessionData {
 				$athenaServer->setCart($cartArray[$accountID][$athenaServerName]);
 			}
 		}
-/**
-		if (!$this->theme || $this->theme === 'installer') { // always update if coming from installer
-			$this->setThemeData(Flux::config('ThemeName.0'));
-		}
-*/		
+
 		return true;
 	}
 

@@ -14,21 +14,21 @@ if (count($_POST)) {
 	$username = $params->get('username');
 	$password = $params->get('password');
 	$code     = $params->get('security_code');
-	
+
 	try {
 		$session->login($server, $username, $password, $code);
 		$returnURL = $params->get('return_url');
-		
+
 		if ($session->loginAthenaGroup->loginServer->config->getUseMD5()) {
 			$password = Flux::hashPassword($password);
 		}
-		
+
 		$sql  = "INSERT INTO {$session->loginAthenaGroup->loginDatabase}.$loginLogTable ";
 		$sql .= "(account_id, username, password, ip, error_code, login_date) ";
 		$sql .= "VALUES (?, ?, ?, ?, ?, NOW())";
 		$sth  = $session->loginAthenaGroup->connection->getStatement($sql);
 		$sth->execute(array($session->account->account_id, $username, $password, $_SERVER['REMOTE_ADDR'], null));
-		
+
 		if ($returnURL) {
 			$this->redirect($returnURL);
 		}
@@ -41,13 +41,13 @@ if (count($_POST)) {
 			$loginAthenaGroup = Flux::getServerGroupByName($server);
 
 			$sql = "SELECT account_id FROM {$loginAthenaGroup->loginDatabase}.login WHERE ";
-			
+
 			if (!$loginAthenaGroup->loginServer->config->getNoCase()) {
 				$sql .= "CAST(userid AS BINARY) ";
 			} else {
 				$sql .= "userid ";
 			}
-			
+
 			$sql .= "= ? LIMIT 1";
 			$sth = $loginAthenaGroup->connection->getStatement($sql);
 			$sth->execute(array($username));
@@ -55,7 +55,7 @@ if (count($_POST)) {
 
 			if ($row) {
 				$accountID = $row->account_id;
-				
+
 				if ($loginAthenaGroup->loginServer->config->getUseMD5()) {
 					$password = Flux::hashPassword($password);
 				}
@@ -67,7 +67,7 @@ if (count($_POST)) {
 				$sth->execute(array($accountID, $username, $password, $_SERVER['REMOTE_ADDR'], $e->getCode()));
 			}
 		}
-		
+
 		switch ($e->getCode()) {
 			case Flux_LoginError::UNEXPECTED:
 				$errorMessage = Flux::message('UnexpectedLoginError');
