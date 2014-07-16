@@ -68,7 +68,7 @@ try {
 
 	//Override default lang, based on CF country code
 	if($_SERVER["HTTP_CF_IPCOUNTRY"]) {
-		header("CC: ".$_SERVER["HTTP_CF_IPCOUNTRY"])
+		header("CC: ".$_SERVER["HTTP_CF_IPCOUNTRY"]);
 	}
 
 	// Initialize Flux.
