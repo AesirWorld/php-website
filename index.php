@@ -75,7 +75,7 @@ try {
 			"VE" => "es", "CL" => "es", "GT" => "es", "CU" => "es", "BO" => "es",
 			"DO" => "es", "HN" => "es", "PY" => "es", "SV" => "es", "NI" => "es",
 			"CR" => "es", "PA" => "es", "UY" => "es", "GQ" => "es", "PR" => "es",
-		)
+		);
 
 		$defaultLang = $matchCountryLang[$_SERVER["HTTP_CF_IPCOUNTRY"]];
 	}
