@@ -136,7 +136,7 @@ class Flux {
 		$lang = $paths[1];
 
 		$langsAvail = self::config('AvailableLanguages')->toArray();
-		$langDefault = self::config('DefaultLanguage');
+		$langDefault = isset($defaultLanguage) ? $defaultLanguage : self::config('DefaultLanguage');
 
 		// Route to default lang, if lang not present
 		if(! array_key_exists($lang, $langsAvail)) {

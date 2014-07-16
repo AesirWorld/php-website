@@ -66,6 +66,11 @@ try {
 		throw new Flux_Error('The PDO_MYSQL driver for the PDO extension must be installed to use Flux.  Please consult the PHP manual for installation instructions.');
 	}
 
+	//Override default lang, based on CF country code
+	if($_SERVER["HTTP_CF_IPCOUNTRY"]) {
+		header("CC: ".$_SERVER["HTTP_CF_IPCOUNTRY"])
+	}
+
 	// Initialize Flux.
 	Flux::initialize(array(
 		'appConfigFile'      => FLUX_CONFIG_DIR.'/application.php',
