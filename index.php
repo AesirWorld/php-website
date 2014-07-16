@@ -66,20 +66,6 @@ try {
 		throw new Flux_Error('The PDO_MYSQL driver for the PDO extension must be installed to use Flux.  Please consult the PHP manual for installation instructions.');
 	}
 
-	//Override default lang, based on CF country code
-	if(isset($_SERVER["HTTP_CF_IPCOUNTRY"])) {
-		//Create a hashtable, remember, all other will default to english language
-		$matchCountryLang = array(
-			"BR" => "br",
-			"ES" => "es", "MX" => "es", "CO" => "es", "AR" => "es", "PE" => "es",
-			"VE" => "es", "CL" => "es", "GT" => "es", "CU" => "es", "BO" => "es",
-			"DO" => "es", "HN" => "es", "PY" => "es", "SV" => "es", "NI" => "es",
-			"CR" => "es", "PA" => "es", "UY" => "es", "GQ" => "es", "PR" => "es",
-		);
-
-		$defaultLang = $matchCountryLang[$_SERVER["HTTP_CF_IPCOUNTRY"]];
-	}
-
 	// Initialize Flux.
 	Flux::initialize(array(
 		'appConfigFile'      => FLUX_CONFIG_DIR.'/application.php',
