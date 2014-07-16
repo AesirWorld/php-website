@@ -42,6 +42,11 @@ if (ini_get('magic_quotes_gpc')) {
 
 set_include_path(FLUX_LIB_DIR.PATH_SEPARATOR.get_include_path());
 
+//Cloudflare real-ip
+if(isset($_SERVER['CF-Connecting-IP'])) {
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
+}
+
 // Default account group IDs.
 require_once FLUX_CONFIG_DIR.'/groups.php';
 
