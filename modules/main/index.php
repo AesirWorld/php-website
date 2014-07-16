@@ -2,7 +2,7 @@
 if (!defined('FLUX_ROOT')) exit;
 
 //Cache
-header("Cache-Control: public, max-age=8600");
+header("Cache-Control: public, max-age=".Flux::config('CacheTimeLow'));
 
 $title = null;
 ?>
