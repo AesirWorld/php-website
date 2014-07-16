@@ -7,14 +7,14 @@ foreach ($params->toArray() as $key => $value) {
 	if (preg_match('&^(.+?)_(year|month|day|hour|minute|second)$&', $key, $m)) {
 		$__dateParam = $m[1];
 		$__dateType  = $m[2];
-		
+
 		if (!array_key_exists($__dateParam, $__dates)) {
 			// Not too sure why, but if I don't create a separate index for this array,
 			// It will use the previous iteration's reference.
 			$__dateArray[$__dateParam] = array();
 			$__dates[$__dateParam] = new Flux_Config($__dateArray[$__dateParam]);
 		}
-		
+
 		$__dates[$__dateParam]->set($__dateType, $value);
 	}
 }
@@ -26,7 +26,7 @@ foreach ($__dates as $__dateName => $__date) {
 	$_hour   = $__date->get('hour');
 	$_minute = $__date->get('minute');
 	$_second = $__date->get('second');
-	
+
 	// Construct DATE.
 	if (!is_null($_year) && !is_null($_month) && !is_null($_day)) {
 		$_format = sprintf('%04d-%02d-%02d', $_year, $_month, $_day);
@@ -62,7 +62,7 @@ $ppReturn = array(
 
 if ($params->get('merchant_return_link') && $ppReturn['txn_id'] && $ppReturn['txn_type'] &&
 	$ppReturn['first_name'] && $ppReturn['last_name'] && $ppReturn['item_name'] && $ppReturn['verify_sign']) {
-		
+
 	$session->setPpReturnData($ppReturn);
 	$this->redirect($this->url('donate', 'complete'));
 }
@@ -73,15 +73,6 @@ if (($preferred_server = $params->get('preferred_server')) && $session->getAthen
 	$session->setAthenaServerNameData($params->get('preferred_server'));
 	if (!array_key_exists('preferred_server', $_GET)) {
 		$this->redirect($this->urlWithQs);
-	}
-}
-
-if (($preferred_theme = $params->get('preferred_theme'))) {
-	if (in_array($preferred_theme, Flux::$appConfig->get('ThemeName', false))) {
-		$session->setThemeData($params->get('preferred_theme'));
-		if (!array_key_exists('preferred_theme', $_GET)) {
-			$this->redirect($this->urlWithQs);
-		}
 	}
 }
 
