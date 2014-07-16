@@ -6,5 +6,3 @@ __MACOSX
 /data/logs
 /data/tmp
 
-config/servers.php
-config/application.php

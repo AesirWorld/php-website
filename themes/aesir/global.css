@@ -18,18 +18,13 @@ body {
     font-family: 'Helvetica-CondensedLight';
     color: #7d7d7d;
     font-size: 14px;
+	padding: 0;
+	margin: 0;
 }
 .top {
     width: 960px;
-    height: 235px;
+	height: 265px;
     margin: 0 auto;
-}
-.top .logo {
-	background:url('images/logo-high-qual.png') no-repeat;
-	float:left;
-	width:320px;
-	height:170px;
-	margin-top:5px;
 }
 .top .menu {
     width: 960px;
@@ -141,6 +136,41 @@ body {
     text-align: right;
     padding-right: 10px;
     color: #fff;
+}
+.top .logo {
+	background:url('images/logo-high-qual.png') no-repeat;
+	width:320px;
+	height:170px;
+	margin-top:5px;
+	cursor:pointer;
+}
+.lang {
+	background:#00879E;
+	border-radius:4px;
+	margin-top:15px;
+	height:20px;
+	padding:0px 8px;
+	float:left;
+}
+.top .lang a {
+	opacity:0.7;
+	width:16px;
+	height:11px;
+	display:inline-block;
+	margin:4px 4px 0px 4px;
+}
+.top .lang a:hover {
+	opacity:1;
+	transition: all 0.3s ease-out;
+}
+.top .lang .en {
+	background:url('images/flags/16/us.png') no-repeat;
+}
+.top .lang .br {
+	background:url('images/flags/16/br.png') no-repeat;
+}
+.top .lang .es {
+	background:url('images/flags/16/es.png') no-repeat;
 }
 .middle {
     width: 960px;

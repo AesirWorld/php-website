@@ -1,5 +1,5 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">			
+<div class="box3">
 	<div class="title">Login</div>
 	<div class="content">
 <?php if (isset($errorMessage)): ?>
@@ -7,7 +7,7 @@
 <?php else: ?>
 
 <?php if ($auth->actionAllowed('account', 'create')): ?>
-<p>Esqueceu sua senha? <a href="<?php echo $this->url('account', 'resetpass') ?>">Clique Aqui!</a></p>
+<p>Forgot your password? <a href="<?php echo $this->url('account', 'resetpass') ?>">Recover!</a></p>
 <?php endif ?>
 
 <?php endif ?>

@@ -220,6 +220,7 @@
 			}
         }
 	   ?>
+
 		<div class="login">
 			<div class="display"><?php echo htmlspecialchars(Flux::message('CPLabel')) ?></div>
 			<div class="panel border-radius">
@@ -229,7 +230,13 @@
 	  	</div>
         <?php endif; ?>
 
-		<a href="/"><div class="logo"></div></a>
+		<div onclick="window.location='/';" class="logo"></div>
+
+		<div class="lang">
+			<a class="en" href="/en<?php echo $_SERVER['REQUEST_URI']; ?>"></a>
+			<a class="es" href="/es<?php echo $_SERVER['REQUEST_URI']; ?>"></a>
+			<a class="br" href="/br<?php echo $_SERVER['REQUEST_URI']; ?>"></a>
+		</div>
 	</div>
 
 	<div class="middle">

@@ -9,7 +9,12 @@ return array(
 	                                                    // WARNING: This will be mostly IGNORED on non-POSIX-compliant OSes (e.g. Windows).
 	'DefaultLoginGroup'    => null,
 	'DefaultCharMapServer' => null,
-	'DefaultLanguage'      => 'en_us',                  // Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
+	'AvailableLanguages'   => array(
+		'en' => 'en_us',
+		'br' => 'pt_br',
+		'es' => 'es_es',
+	),
+	'DefaultLanguage'      => 'en',                  // Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
 	'SiteTitle'            => 'Aesir World',     // This value is only used if the theme decides to use it.
 	'ThemeName'            => array('aesir'), // Names of the themes you would like to use.  Themes are in FLUX_ROOT/themes. First theme listed will be default theme.
 	'ScriptTimeLimit'      => 0,                        // Script execution time limit. Specifies (in seconds) how long a page should run before timing out. (0 means forever)
