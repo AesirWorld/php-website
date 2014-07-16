@@ -189,6 +189,10 @@ try {
 	Flux::$sessionData = new Flux_SessionData($_SESSION[$sessionKey], $hasUpdates);
 	Flux_Security::setSession($_SESSION[$sessionKey]);
 
+	//Remove session cache headers that are added by default
+	header_remove('Pragma');
+	header_remove('Expires');
+
 	// Initialize authorization component.
 	$accessConfig = Flux::parseConfigFile(FLUX_CONFIG_DIR.'/access.php');
 
