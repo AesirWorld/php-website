@@ -140,20 +140,6 @@ class Flux {
 
 		// Route to default lang, if lang not present
 		if(! array_key_exists($lang, $langsAvail)) {
-			//Override default lang, based on CF country code
-			if(isset($_SERVER["HTTP_CF_IPCOUNTRY"])) {
-				//Create a hashtable, remember, all other will default to english language
-				$matchCountryLang = array(
-					"BR" => "br",
-					"ES" => "es", "MX" => "es", "CO" => "es", "AR" => "es", "PE" => "es",
-					"VE" => "es", "CL" => "es", "GT" => "es", "CU" => "es", "BO" => "es",
-					"DO" => "es", "HN" => "es", "PY" => "es", "SV" => "es", "NI" => "es",
-					"CR" => "es", "PA" => "es", "UY" => "es", "GQ" => "es", "PR" => "es",
-				);
-
-				$langDefault = $matchCountryLang[$_SERVER["HTTP_CF_IPCOUNTRY"]];
-			}
-
 			header('Location: /' . $langDefault . $_SERVER['REQUEST_URI']);
 			exit();
 		}

@@ -40,12 +40,39 @@ if (ini_get('magic_quotes_gpc')) {
 	}
 }
 
-set_include_path(FLUX_LIB_DIR.PATH_SEPARATOR.get_include_path());
+//Hacky way to route to default language page
+//This is an optimzation code, its hacky, but works for now.
+//You can remove this code, Flux will still route to the default language, but it will do ~30x less req/sec.
+//I'll probablly also add this code in nginx :)
+if($_SERVER['REQUEST_URI'] == "/") {
+	//Create a hashtable, remember, all other will default to english language
+	$matchCountryLang = array(
+		"DEFAULT" => "en",
+		"BR" => "br",
+		"ES" => "es", "MX" => "es", "CO" => "es", "AR" => "es", "PE" => "es",
+		"VE" => "es", "CL" => "es", "GT" => "es", "CU" => "es", "BO" => "es",
+		"DO" => "es", "HN" => "es", "PY" => "es", "SV" => "es", "NI" => "es",
+		"CR" => "es", "PA" => "es", "UY" => "es", "GQ" => "es", "PR" => "es",
+	);
+
+	$countryCode = isset($_SERVER["HTTP_CF_IPCOUNTRY"]) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "DEFAULT";
+	$langDefault = $matchCountryLang[$countryCode];
+
+	if($langDefault) {
+		header("Location: ".$langDefault);
+	}
+	else {
+		header("Location: ".$matchCountryLang["DEFAULT"]);
+	}
+	exit;
+}
 
 //Cloudflare real-ip
 if(isset($_SERVER['CF-Connecting-IP'])) {
 	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CF_CONNECTING_IP'];
 }
+
+set_include_path(FLUX_LIB_DIR.PATH_SEPARATOR.get_include_path());
 
 // Default account group IDs.
 require_once FLUX_CONFIG_DIR.'/groups.php';
