@@ -32,27 +32,27 @@
 
             var showTabbedMenu = function (event) {
                 $('.login .display').hide(300);
-                $('.login .panel').show(300);
+                $('.login .panel, .login .form').show(300);
 
                 event.stopPropagation();
                 return false;
             }
 
             var hideTabbedMenu = function (event) {
-                $('.login .panel').hide(300);
+                $('.login .panel, .login .form').hide(300);
                 $('.login .display').show(300);
             }
 
-            $('.login .panel').hide();
+            $('.login .panel, .login .form').hide();
 
             $('.login .display').on('click', showTabbedMenu);
 
             if (!$('.login').hasClass('clicking')) { //not have
                 $('.login .display').mouseenter(showTabbedMenu);
-                $('.login .panel').mouseleave(hideTabbedMenu);
+                $('.login .panel, .login .form').mouseleave(hideTabbedMenu);
             }
 
-            $('.login .panel').click(function (event) {
+            $('.login .panel, .login .form').click(function (event) {
                 event.stopPropagation();
                 return true;
             });
