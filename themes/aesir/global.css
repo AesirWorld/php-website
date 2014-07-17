@@ -69,7 +69,7 @@ body {
     text-align: center;
     cursor: pointer;
 }
-.top .login .panel {
+.top .login .panel, .top .login .form {
     width: 175px;
 }
 .top .login input,
@@ -98,6 +98,9 @@ body {
     margin-top: 6px;
     margin-bottom:10px;
 	cursor:pointer;
+}
+.top .login .form a {
+	color:#fff;
 }
 .top .login .panel strong {
     display:block;
