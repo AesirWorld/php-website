@@ -170,10 +170,11 @@ try {
 		throw new Flux_Error("The 'session.use_trans_sid' php.ini configuration must be turned off for Flux to work.");
 
 	// Installer library.
+	/*
 	$installer = Flux_Installer::getInstance();
 	if ($hasUpdates=$installer->updateNeeded())
 		Flux::config('ThemeName', 'installer');
-
+	*/
 	$sessionKey = Flux::config('SessionKey');
 	$sessionExpireDuration = Flux::config('SessionCookieExpire') * 60 * 60;
 	session_set_cookie_params($sessionExpireDuration, Flux::config('BaseURI'));
@@ -186,7 +187,7 @@ try {
 	}
 
 	// Initialize session data.
-	Flux::$sessionData = new Flux_SessionData($_SESSION[$sessionKey], $hasUpdates);
+	Flux::$sessionData = new Flux_SessionData($_SESSION[$sessionKey]);
 	Flux_Security::setSession($_SESSION[$sessionKey]);
 
 	//Remove session cache headers that are added by default
