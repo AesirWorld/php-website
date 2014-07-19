@@ -1,5 +1,7 @@
 /etc/*.log
 
+.vagrant
+
 __MACOSX
 .DS_Store
 
