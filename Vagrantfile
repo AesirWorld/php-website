@@ -53,7 +53,7 @@ apt-get -y install mysql-server
 mysql -u root -pvagrant -e "CREATE DATABASE ragnarok"
 mysql -u root -pvagrant ragnarok < /vagrant/etc/database.sql
 
-echo Creating MySQL user (ragnarok/ragnarok)
+echo Creating MySQL user ragnarok
 mysql -u root -pvagrant -e "GRANT ALL PRIVILEGES ON `ragnarok`.* TO 'ragnarok'@'localhost' IDENTIFIED BY 'ragnarok' WITH GRANT OPTION; FLUSH PRIVILEGES;"
 
 echo Creating MySQL remote root user
