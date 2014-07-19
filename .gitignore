@@ -1,8 +1,7 @@
-nginx_error.log
+/etc/*.log
 
 __MACOSX
 .DS_Store
 
-/data/logs
-/data/tmp
-
+/web/data/logs
+/web/data/tmp

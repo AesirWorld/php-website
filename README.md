@@ -1,31 +1,23 @@
-FluxCP
-======
+Aesir World Website
+=================
 
-Flux Control Panel (FluxCP) for Hercules server.
+Install (Setup a dev enviroment)
+-----------
+```
+vagrant up
+```
+* You need to have Vagrant installed on the host machine.
 
-Requirements
----------
-* PHP 5.2
-* PDO and PDO-MYSQL extensions for PHP5 (including PHP_MYSQL support)
-* MySQL 5
-* Optional: GD2 (for guild emblems and registration CAPTCHA)
-* Optional: Tidy (for cleaner HTML output)
-* Optional: mod_rewrite support for UseCleanUrls feature
 
-Authors
----------
-The following people have contributed to the development of FluxCP through the years.
-
-Thank you for all your hard work.
-
-Boooo
-Byteflux86
-Gepard
-hemagx
-jaBote
-Mumbles
-Mysterious
-Paradox924X
-shugotenshi
-Streusel
-Xantara
+Notes to self
+-----------
+* Website located on the `web` folder, this folder is shared with the VM.
+* VM Addr: 192.168.10.90
+* Website running on Synced Folder: http://localhost:9080/ or http://192.168.10.90:80/ (This runs using php-fpm)
+* Website running on /var/www: http://localhost:9081/ or http://192.168.10.90:81/ (This runs using hhvm)
+* Use `vagrant rsync` or `vagrant rsync-auto` to sync the `web` folder with the VM `/var/www` folder.
+* MySQL server running on, 192.168.10.90:3306
+* Access MySQL with root and a blank password.
+* The ./etc folder is copied to the VM on provisioning.
+* But Nginx will load ./etc/sites-enabled/* and write logs to the ./etc folder by default.
+* You will have problems in using an Windows host, due to lack of the NFS support feature. See https://docs.vagrantup.com/v2/synced-folders/nfs.html

@@ -1,0 +1,24 @@
+server {
+    listen      *:80 default;
+    root        /vagrant/web;
+    access_log  /vagrant/etc/access.log;
+    error_log   /vagrant/etc/error.log;
+
+    index index.php;
+
+    location / {
+        error_page 404 = @clean;
+    }
+
+    location @clean {
+        rewrite ^(.*)$ /index.php?q=$1 last;
+    }
+
+    location ~* ^/[^/]+\.(txt|ico|xml)$ { }
+    location ~* ^/(assets|bundles|media)/ { }
+
+    location ~* \.php$ {
+        internal;
+        fastcgi_pass fpm;
+    }
+}
