@@ -37,12 +37,12 @@ foreach ($__dates as $__dateName => $__date) {
 		$params->set("{$__dateName}_date", $_format);
 	}
 }
-
+/*
 $installer = Flux_Installer::getInstance();
 if ($installer->updateNeeded() && $params->get('module') != 'install') {
 	$this->redirect($this->url('install'));
 }
-
+*/
 if (Flux::config('AutoUnholdAccount')) {
 	Flux::processHeldCredits();
 }
