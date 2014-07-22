@@ -660,7 +660,7 @@ return array(
         'MiscAccounts' => 'Contas',
         'MiscCharacters' => 'Personagens',
         'MiscGuilds' => 'Guildas',
-        'MiscSendMail' => 'Enviar Email',
+        'MiscSendMail' => 'Enviar E-mail',
         'MiscReinstall' => 'Re-Install',
         'MiscAuction' => 'Leilão',
         'MiscEconomy' => 'Economía',
@@ -672,7 +672,7 @@ return array(
         'history' => array(
             'gamelogin'  => 'Logins no Jogo',
             'cplogin'    => 'Logins no Site',
-            'emailchange'=> 'Mudanças de Email',
+            'emailchange'=> 'Mudanças de E-mail',
             'passchange' => 'Mudanças de Senha',
             'passreset'  => 'Recuperações de Senha'
         ),
@@ -720,15 +720,15 @@ return array(
             'ipban'      => 'IP Bans'
         ),
         'purchase' => array(
-            'index'    => 'Shop',
-            'cart'     => 'Go to Cart',
-            'checkout' => 'Checkout',
-            'clear'    => 'Empty Cart',
-            'pending'  => 'Pending Redemption'
+            'index'    => 'Loja',
+            'cart'     => 'Carrinho de Compras',
+            'checkout' => 'Finalizar',
+            'clear'    => 'Esvaziar Carrinho',
+            'pending'  => 'Aguardando Retirada'
         ),
         'donate' => array(
-            'index'   => 'Make a Donation',
-            'history' => 'Donation History',
+            'index'   => 'Fazer uma Doação',
+            'history' => 'Histórico de Doações',
             'trusted' => 'Trusted PayPal E-mails'
         ),
         'ipban' => array(

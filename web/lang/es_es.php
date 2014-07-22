@@ -687,26 +687,26 @@ return array(
 		'history' => array(
 			'gamelogin'  => 'Acesso Juego',
 			'cplogin'    => 'Acesso Site',
-			'emailchange'=> 'Mudanças de Email',
-			'passchange' => 'Mudanças de Senha',
-			'passreset'  => 'Recuperações de Senha'
+			'emailchange'=> 'Cambios de E-mail',
+			'passchange' => 'Cambios de Contraseña',
+			'passreset'  => 'Recuperaciones de Contraseña'
 		),
 		'account' => array(
-			'index'      => 'Listar Contas',
-			'view'       => 'Visualizar Conta',
-			'changepass' => 'Modificar Senha',
-			'changemail' => 'Modificar Email',
-			'changesex'  => 'Trocar de Sexo',
-			'transfer'   => 'Transferir Créditos',
+			'index'      => 'Listar Cuentas',
+			'view'       => 'Ver Cuenta',
+			'changepass' => 'Cambiar la Contraseña',
+			'changemail' => 'Cambiar el E-mail',
+			'changesex'  => 'Cambio de Sexo',
+			'transfer'   => 'Transferencia de Créditos',
 			'xferlog'    => 'Histórico de Tranf. de Crédito',
-			'cart'       => 'Ir Para Carrinho de Compra',
-			'login'      => 'Logar',
+			'cart'       => 'Ir Carrito de Compras',
+			'login'      => 'Login',
 			'create'     => 'Registrar',
-			'resetpass'  => 'Recuperar Senha',
+			'resetpass'  => 'Recuperar Contraseña',
 			'resend'     => 'Reenviar E-mail de Confirmación'
 		),
 		'guild' => array(
-			'index'  => 'Listar Guildas',
+			'index'  => 'Lista Guildas',
 			'export' => 'Exportar Emblemas de Guildas'
 		),
 		'server' => array(
@@ -735,32 +735,32 @@ return array(
 			'ipban'      => 'IP Bans'
 		),
 		'purchase' => array(
-			'index'    => 'Shop',
-			'cart'     => 'Go to Cart',
-			'checkout' => 'Checkout',
-			'clear'    => 'Empty Cart',
+			'index'    => 'Tienda',
+			'cart'     => 'Carrito de Compras',
+			'checkout' => 'Finalizar',
+			'clear'    => 'Vaciar Carrito',
 			'pending'  => 'Pending Redemption'
 		),
 		'donate' => array(
-			'index'   => 'Make a Donation',
-			'history' => 'Donation History',
+			'index'   => 'Fazer una Donación',
+			'history' => 'Registros de Donacíon',
 			'trusted' => 'Trusted PayPal E-mails'
 		),
 		'ipban' => array(
 			'index' => 'Lista de IP Ban',
-			'add'   => 'Adicionar IP Ban'
+			'add'   => 'Añadir IP Ban'
 		),
 		'ranking' => array(
-			'character'  => 'Ranking de Personagens',
-			'guild'      => 'Ranking de Guildas',
-			'zeny'       => 'Ranking de Zeny',
-			'death'      => 'Ranking de Mortes',
-			'alchemist'  => 'Ranking de Alchemistas',
-			'blacksmith' => 'Ranking de Ferreiros'
+			'character'  => 'Ranking Personagens',
+			'guild'      => 'Ranking Guildas',
+			'zeny'       => 'Ranking Zeny',
+			'death'      => 'Ranking Muertes',
+			'alchemist'  => 'Ranking Alchemistas',
+			'blacksmith' => 'Ranking Herreros'
 		),
 		'item' => array(
-			'index' => 'Listar Items',
-			'add'   => 'Adicionar Item'
+			'index' => 'Lista Ítems',
+			'add'   => 'Añadir Ítem'
 		)
 	),
 
