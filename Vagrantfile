@@ -74,6 +74,14 @@ echo Starting services...
 /etc/init.d/nginx restart
 /etc/init.d/php5-fpm restart
 /etc/init.d/hhvm start
+
+echo Adding to rc.d
+update-rc.d nginx defaults
+update-rc.d nginx enable
+update-rc.d php5-fpm defaults
+update-rc.d php5-fpm enable
+update-rc.d hhvm defaults
+update-rc.d hhvm enable
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -88,7 +96,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.name = "Aesir Website Dev"
-    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
     vb.customize ["modifyvm", :id, "--cpus", "4"]
     vb.customize ["modifyvm", :id, "--hwvirtex", "on"]
     vb.customize ["modifyvm", :id, "--nestedpaging", "on"]
