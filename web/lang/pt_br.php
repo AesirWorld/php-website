@@ -625,10 +625,136 @@ return array(
 	'SecurityNeedSession'     => 'Desculpe, nenhuma sessão encontrada (tentativa Hack?)',
 	'SecurityNeedToken'       => 'Desculpe, nenhum sinal encontrado para identificar há ação (tentativa Hack ?)',
 
+    //Menu's translation, if not present, will use the menu key as the text instead.
+    'Menu' => array(
+        'MainHome' => 'Início',
+        'MainPlay' => 'Jogar',
+        'MainRegister' => 'Cadastro',
+        'MainForum' => 'Fórum',
+        'MainItems' => 'Itens',
+        'MainMobs' => 'Monstros',
+        //Account menu
+        'AccountRegister' => 'Registro',
+        'AccountLogin' => 'Logar',
+        'AccountMyAccount' => 'Minha Conta',
+        'AccountHistory' => 'Histórico',
+        'AccountLogout' => 'Deslogar',
+        //Donations
+        'DonationsDonate' => 'Doação',
+        'DonationsPurchase' => 'Loja',
+        //Information
+        'InformationServerInfo' => 'Informações do Servidor',
+        'InformationServerStatus' => 'Status do Servidor',
+        'InformationServerWoeHours' => 'Horários de WoE',
+        'InformationServerCastles' => 'Castelos',
+        'InformationServerOnline' => 'Quem está Online',
+        'InformationServerMapStats' => 'Estatisticas de Mapa',
+        'InformationServerRankingInfo' => 'Informações do Ranking',
+        //Database
+        'DatabaseItem' => 'Database de Itens',
+        'DatabaseMob' => 'Database de Monstros',
+        //Misc
+        'MiscHerculesLogs' => 'Hercules Logs',
+        'MiscCpLogs' => 'CP Logs',
+        'MiscIpBanList' => 'IP Ban List',
+        'MiscAccounts' => 'Contas',
+        'MiscCharacters' => 'Personagens',
+        'MiscGuilds' => 'Guildas',
+        'MiscSendMail' => 'Enviar Email',
+        'MiscReinstall' => 'Re-Install',
+        'MiscAuction' => 'Leilão',
+        'MiscEconomy' => 'Economía',
+    ),
+    // -- Submenus
+    // Sub-menu items that are displayed for any action belonging to a
+    // particular module. The format it simple.
+    'SubMenu' => array(
+        'history' => array(
+            'gamelogin'  => 'Logins no Jogo',
+            'cplogin'    => 'Logins no Site',
+            'emailchange'=> 'Mudanças de Email',
+            'passchange' => 'Mudanças de Senha',
+            'passreset'  => 'Recuperações de Senha'
+        ),
+        'account' => array(
+            'index'      => 'Listar Contas',
+            'view'       => 'Visualizar Conta',
+            'changepass' => 'Modificar Senha',
+            'changemail' => 'Modificar E-mail',
+            'changesex'  => 'Trocar de Sexo',
+            'transfer'   => 'Transferir Créditos',
+            'xferlog'    => 'Transferências de Crédito',
+            'cart'       => 'Carrinho de Compra',
+            'login'      => 'Logar',
+            'create'     => 'Registrar',
+            'resetpass'  => 'Recuperar Senha',
+            'resend'     => 'Reenviar E-mail de Confirmação'
+        ),
+        'guild' => array(
+            'index'  => 'Listar Guildas',
+            'export' => 'Exportar Emblemas de Guildas'
+        ),
+        'server' => array(
+            'status'     => 'Visualizar Status',
+            'status-xml' => 'Visualizar Status XML'
+        ),
+        'logdata' => array(
+            //'char'    => 'Characters',
+            //'inter'   => 'Interactions',
+            'command' => 'Commands',
+            //'branch'  => 'Branches',
+            'chat'    => 'Chat Messages',
+            'login'   => 'Logins',
+            //'mvp'     => 'MVP',
+            //'npc'     => 'NPC',
+            'pick'    => 'Item Picks',
+            'zeny'    => 'Zeny'
+        ),
+        'cplog' => array(
+            'paypal'     => 'PayPal Transactions',
+            'login'      => 'Logins',
+            'resetpass'  => 'Password Resets',
+            'changepass' => 'Password Changes',
+            'changemail' => 'E-mail Changes',
+            'ban'        => 'Account Bans',
+            'ipban'      => 'IP Bans'
+        ),
+        'purchase' => array(
+            'index'    => 'Shop',
+            'cart'     => 'Go to Cart',
+            'checkout' => 'Checkout',
+            'clear'    => 'Empty Cart',
+            'pending'  => 'Pending Redemption'
+        ),
+        'donate' => array(
+            'index'   => 'Make a Donation',
+            'history' => 'Donation History',
+            'trusted' => 'Trusted PayPal E-mails'
+        ),
+        'ipban' => array(
+            'index' => 'Lista de IP Ban',
+            'add'   => 'Adicionar IP Ban'
+        ),
+        'ranking' => array(
+            'character'  => 'Ranking de Personagens',
+            'guild'      => 'Ranking de Guildas',
+            'zeny'       => 'Ranking de Zeny',
+            'death'      => 'Ranking de Mortes',
+            'alchemist'  => 'Ranking de Alchemistas',
+            'blacksmith' => 'Ranking de Ferreiros'
+        ),
+        'item' => array(
+            'index' => 'Listar Items',
+            'add'   => 'Adicionar Item'
+        )
+    ),
+
     //Aesir Theme Related
+    // - main/index
     'NewsLabel' => 'Notícias',
-    'CPLabel' => 'Painel de Controle',
     'StoreLabel' => 'Loja',
+    // - header
+    'CPLabel' => 'Painel de Controle',
     'DayOfWeekSunday' => 'Domingo',
     'DayOfWeekMonday' => 'Segunda',
     'DayOfWeekTuesday' =>  'Terça',
@@ -636,12 +762,14 @@ return array(
     'DayOfWeekThursday' =>  'Quinta',
     'DayOfWeekFriday' =>  'Sexta',
     'DayOfWeekSaturday' =>  'Sábado',
-    'AccDetailsTitle' => 'Detalhes da Conta',
-    'RegisterPageTitle' => 'Criar Conta',
     'LoginInputUserLabel' => 'Usuário...',
     'LoginInputPassLabel' => 'Senha...',
     'LoginForgotPassLabel' => 'esqueceu sua senha?',
     'LoginSubmitLabel' => 'entrar',
     'LoginRegisterLabel' => 'cadastro',
+    // - account/view
+    'AccDetailsTitle' => 'Detalhes da Conta',
+    // - account/create
+    'RegisterPageTitle' => 'Criar Conta',
 );
 ?>

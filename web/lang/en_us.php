@@ -625,10 +625,136 @@ return array(
 	'WoeTimesLabel'           => 'War of Emperium Times',
 	'WoeNotScheduledInfo'     => 'There are no scheduled WoE hours.',
 
+	//Menu's translation, if not present, will use the menu key as the text instead.
+	'Menu' => array(
+		'MainHome' => 'Home',
+		'MainPlay' => 'Play',
+		'MainRegister' => 'Register',
+		'MainForum' => 'Forum',
+		'MainItems' => 'Items',
+		'MainMobs' => 'Monsters',
+		//Account menu
+		'AccountRegister' => 'Register',
+		'AccountLogin' => 'Login',
+		'AccountMyAccount' => 'My Account',
+		'AccountHistory' => 'History',
+		'AccountLogout' => 'Logout',
+		//Donations
+		'DonationsDonate' => 'Donate',
+		'DonationsPurchase' => 'Store',
+		//Information
+		'InformationServerInfo' => 'Server Info',
+		'InformationServerStatus' => 'Server Status',
+		'InformationServerWoeHours' => 'WoE Hours',
+		'InformationServerCastles' => 'Castles',
+		'InformationServerOnline' => 'Who\'s Online',
+		'InformationServerMapStats' => 'Map Statistics',
+		'InformationServerRankingInfo' => 'Ranking Info',
+		//Database
+		'DatabaseItem' => 'Item Database',
+		'DatabaseMob' => 'Mob Database',
+		//Misc
+		'MiscHerculesLogs' => 'Hercules Logs',
+		'MiscCpLogs' => 'CP Logs',
+		'MiscIpBanList' => 'IP Ban List',
+		'MiscAccounts' => 'Accounts',
+		'MiscCharacters' => 'Characters',
+		'MiscGuilds' => 'Guilds',
+		'MiscSendMail' => 'Send Mail',
+		'MiscReinstall' => 'Re-Install',
+		'MiscAuction' => 'Auction',
+		'MiscEconomy' => 'Economy',
+	),
+	// -- Submenus
+	// Sub-menu items that are displayed for any action belonging to a
+	// particular module. The format it simple.
+	'SubMenu' => array(
+		'history' => array(
+			'gamelogin'  => 'Game Logins',
+			'cplogin'    => 'CP Logins',
+			'emailchange'=> 'E-Mail Changes',
+			'passchange' => 'Password Changes',
+			'passreset'  => 'Password Resets'
+		),
+		'account' => array(
+			'index'      => 'List Accounts',
+			'view'       => 'View Account',
+			'changepass' => 'Change Password',
+			'changemail' => 'Change E-mail',
+			'changesex'  => 'Change Gender',
+			'transfer'   => 'Transfer Credits',
+			'xferlog'    => 'Credit Transfer History',
+			'cart'       => 'Go to Shopping Cart',
+			'login'      => 'Login',
+			'create'     => 'Register',
+			'resetpass'  => 'Reset Password',
+			'resend'     => 'Resend E-mail Confirmation'
+		),
+		'guild' => array(
+			'index'  => 'List Guilds',
+			'export' => 'Export Guild Emblems'
+		),
+		'server' => array(
+			'status'     => 'View Status',
+			'status-xml' => 'View Status as XML'
+		),
+		'logdata' => array(
+			//'char'    => 'Characters',
+			//'inter'   => 'Interactions',
+			'command' => 'Commands',
+			//'branch'  => 'Branches',
+			'chat'    => 'Chat Messages',
+			'login'   => 'Logins',
+			//'mvp'     => 'MVP',
+			//'npc'     => 'NPC',
+			'pick'    => 'Item Picks',
+			'zeny'    => 'Zeny'
+		),
+		'cplog' => array(
+			'paypal'     => 'PayPal Transactions',
+			'login'      => 'Logins',
+			'resetpass'  => 'Password Resets',
+			'changepass' => 'Password Changes',
+			'changemail' => 'E-mail Changes',
+			'ban'        => 'Account Bans',
+			'ipban'      => 'IP Bans'
+		),
+		'purchase' => array(
+			'index'    => 'Shop',
+			'cart'     => 'Go to Cart',
+			'checkout' => 'Checkout',
+			'clear'    => 'Empty Cart',
+			'pending'  => 'Pending Redemption'
+		),
+		'donate' => array(
+			'index'   => 'Make a Donation',
+			'history' => 'Donation History',
+			'trusted' => 'Trusted PayPal E-mails'
+		),
+		'ipban' => array(
+			'index' => 'IP Ban List',
+			'add'   => 'Add IP Ban'
+		),
+		'ranking' => array(
+			'character'  => 'Character Ranking',
+			'guild'      => 'Guild Ranking',
+			'zeny'       => 'Zeny Ranking',
+			'death'      => 'Death Ranking',
+			'alchemist'  => 'Alchemist Ranking',
+			'blacksmith' => 'Blacksmith Ranking'
+		),
+		'item' => array(
+			'index' => 'List Items',
+			'add'   => 'Add Item'
+		)
+	),
+
 	//Aesir Theme Related
+	// - main/index
 	'NewsLabel' => 'News',
-	'CPLabel' => 'Control Panel',
 	'StoreLabel' => 'Store',
+	// - header
+	'CPLabel' => 'Control Panel',
 	'DayOfWeekSunday' => 'Sunday',
 	'DayOfWeekMonday' => 'Monday',
 	'DayOfWeekTuesday' =>  'Tuesday',
@@ -636,12 +762,14 @@ return array(
 	'DayOfWeekThursday' =>  'Thursday',
 	'DayOfWeekFriday' =>  'Friday',
 	'DayOfWeekSaturday' =>  'Saturday',
-	'AccDetailsTitle' => 'Account Details',
-	'RegisterPageTitle' => 'Account Create',
 	'LoginInputUserLabel' => 'Username...',
 	'LoginInputPassLabel' => 'Password...',
 	'LoginForgotPassLabel' => 'forgot your password?',
 	'LoginSubmitLabel' => 'go',
 	'LoginRegisterLabel' => 'register',
+	// - account/view
+	'AccDetailsTitle' => 'Account Details',
+	// - account/create
+	'RegisterPageTitle' => 'Account Create',
 );
 ?>

@@ -105,7 +105,7 @@ try {
 	Flux::initialize(array(
 		'appConfigFile'      => FLUX_CONFIG_DIR.'/application.php',
 		'serversConfigFile'  => FLUX_CONFIG_DIR.'/servers.php',
-		//'messagesConfigFile' => FLUX_CONFIG_DIR.'/messages.php' // No longer needed (Deprecated)
+		'menuConfigFile'     => FLUX_CONFIG_DIR.'/menus.php',
 	));
 
 	// Set time limit.

@@ -46,6 +46,14 @@ class Flux {
 	public static $serversConfig;
 
 	/**
+	* Menus configuration object.
+	*
+	* @access public
+	* @var Flux_Config
+	*/
+	public static $menuConfig;
+
+	/**
 	 * Messages configuration object.
 	 *
 	 * @access public
@@ -116,8 +124,7 @@ class Flux {
 	 */
 	public static function initialize($options = array())
 	{
-		//$required = array('appConfigFile', 'serversConfigFile', 'messagesConfigFile');
-		$required = array('appConfigFile', 'serversConfigFile');
+		$required = array('appConfigFile', 'serversConfigFile', 'menuConfigFile');
 		foreach ($required as $option) {
 			if (!array_key_exists($option, $options)) {
 				self::raise("Missing required option `$option' in Flux::initialize()");
@@ -129,7 +136,6 @@ class Flux {
 		// below methods for more details on what's being done.
 		self::$appConfig      = self::parseAppConfigFile($options['appConfigFile']);
 		self::$serversConfig  = self::parseServersConfigFile($options['serversConfigFile']);
-		//self::$messagesConfig = self::parseMessagesConfigFile($options['messagesConfigFile']); // Deprecated.
 
 		// Language system, extract lang, or route to default lang url
 		$paths = explode('/', $_SERVER['REQUEST_URI']);
@@ -155,6 +161,13 @@ class Flux {
 
 		// Using newer language system.
 		self::$messagesConfig = self::parseLanguageConfigFile();
+
+		//We can only parse the menu conf file, after the language has been loaded
+		self::$menuConfig     = self::parseConfigFile($options['menuConfigFile'], false);
+
+		//For now a quick hack, merge to app->config.
+		//TODO: create something like Flux::->menu()
+		self::$appConfig->merge(self::$menuConfig, true);
 
 		// Initialize server objects.
 		self::initializeServerObjects();

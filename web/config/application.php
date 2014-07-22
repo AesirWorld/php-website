@@ -76,7 +76,7 @@ return array(
 	'MailerSMTPPassword'   => null,                     // When MailerUseSMTP is true: Authorized password for SMTP server (for above user).
 	'ServerStatusCache'    => 1,                        // Store a cached server status and refresh every X minutes.  Default: 2 minutes (value is measured in minutes).
 	'ServerStatusTimeout'  => 2,                        // For each server, spend X amount of seconds to determine whether it's up or not.
-	'SessionKey'           => 'fluxSessionData',        // Shouldn't be changed, just specifies the session key to be used for session data.
+	'SessionKey'           => 'sd',        				// Shouldn't be changed, just specifies the session key to be used for session data.
 	'DefaultModule'        => 'main',                   // This is the module to execute when none has been specified.
 	'DefaultAction'        => 'index',                  // This is the default action for any module, probably should leave this alone. (Deprecated)
 	'GzipCompressOutput'   => false,                    // Whether or not to compress output using zlib.
@@ -197,139 +197,6 @@ return array(
 
 	'AdminMenuNewStyle'       => true,                  // Use new-style admin menu;  Applies to 'default' theme.
 
-	// These are the main menu items that should be displayed by themes.
-	// They route to modules and actions.  Whether they are displayed or
-	// not at any given time depends on the user's account group level and/or
-	// their login status.
-	'MenuItems' => array(
-		'Main Menu'   => array(
-			'Home'          => array('module' => 'main'),
-			'Play'          => array('exturl' => 'http://play.aesirworld.com/'),
-			'Register'      => array('module' => 'account', 'action' => 'create'),
-			'Forum'  => array('module' => 'forum'),
-			'Items' => array('module' => 'item'),
-			'Mobs' => array('module' => 'monster'),
-		),
-		'Account'     => array(
-			'Register'      => array('module' => 'account', 'action' => 'create'),
-			'Login'         => array('module' => 'account', 'action' => 'login'),
-			'My Account'    => array('module' => 'account', 'action' => 'view'),
-			'History'       => array('module' => 'history'),
-			'Logout'        => array('module' => 'account', 'action' => 'logout'),
-		),
-		'Donations'   => array(
-			'Donate'        => array('module' => 'donate'),
-			'Purchase'      => array('module' => 'purchase'),
-		),
-		'Information' => array(
-			'Server Info'   => array('module' => 'server', 'action' => 'info'),
-			'Server Status' => array('module' => 'server', 'action' => 'status'),
-			'WoE Hours'     => array('module' => 'woe'),
-			'Castles'       => array('module' => 'castle'),
-			"Who's Online"  => array('module' => 'character', 'action' => 'online'),
-			'Map Statistics'=> array('module' => 'character', 'action' => 'mapstats'),
-			'Ranking Info'  => array('module' => 'ranking', 'action' => 'character'),
-		),
-		'Database'    => array(
-			'Item Database' => array('module' => 'item'),
-			'Mob Database'  => array('module' => 'monster'),
-		),
-		'Misc. Stuff' => array(
-			'Hercules Logs' => array('module' => 'logdata'),
-			'CP Logs'       => array('module' => 'cplog'),
-			'IP Ban List'   => array('module' => 'ipban'),
-			'Accounts'      => array('module' => 'account'),
-			'Characters'    => array('module' => 'character'),
-			'Guilds'        => array('module' => 'guild'),
-			'Send Mail'     => array('module' => 'mail'),
-			'Re-Install'    => array('module' => 'install', 'action' => 'reinstall'),
-			//'Auction'       => array('module' => 'auction'),
-			//'Economy'       => array('module' => 'economy'),
-		)
-	),
-
-	// Sub-menu items that are displayed for any action belonging to a
-	// particular module. The format it simple.
-	'SubMenuItems' => array(
-		'history' => array(
-			'gamelogin'  => 'Game Logins',
-			'cplogin'    => 'CP Logins',
-			'emailchange'=> 'E-Mail Changes',
-			'passchange' => 'Password Changes',
-			'passreset'  => 'Password Resets'
-		),
-		'account' => array(
-			'index'      => 'List Accounts',
-			'view'       => 'View Account',
-			'changepass' => 'Change Password',
-			'changemail' => 'Change E-mail',
-			'changesex'  => 'Change Gender',
-			'transfer'   => 'Transfer Credits',
-			'xferlog'    => 'Credit Transfer History',
-			'cart'       => 'Go to Shopping Cart',
-			'login'      => 'Login',
-			'create'     => 'Register',
-			'resetpass'  => 'Reset Password',
-			'resend'     => 'Resend E-mail Confirmation'
-		),
-		'guild' => array(
-			'index'  => 'List Guilds',
-			'export' => 'Export Guild Emblems'
-		),
-		'server' => array(
-			'status'     => 'View Status',
-			'status-xml' => 'View Status as XML'
-		),
-		'logdata' => array(
-			//'char'    => 'Characters',
-			//'inter'   => 'Interactions',
-			'command' => 'Commands',
-			//'branch'  => 'Branches',
-			'chat'    => 'Chat Messages',
-			'login'   => 'Logins',
-			//'mvp'     => 'MVP',
-			//'npc'     => 'NPC',
-			'pick'    => 'Item Picks',
-			'zeny'    => 'Zeny'
-		),
-		'cplog' => array(
-			'paypal'     => 'PayPal Transactions',
-			'login'      => 'Logins',
-			'resetpass'  => 'Password Resets',
-			'changepass' => 'Password Changes',
-			'changemail' => 'E-mail Changes',
-			'ban'        => 'Account Bans',
-			'ipban'      => 'IP Bans'
-		),
-		'purchase' => array(
-			'index'    => 'Shop',
-			'cart'     => 'Go to Cart',
-			'checkout' => 'Checkout',
-			'clear'    => 'Empty Cart',
-			'pending'  => 'Pending Redemption'
-		),
-		'donate' => array(
-			'index'   => 'Make a Donation',
-			'history' => 'Donation History',
-			'trusted' => 'Trusted PayPal E-mails'
-		),
-		'ipban' => array(
-			'index' => 'IP Ban List',
-			'add'   => 'Add IP Ban'
-		),
-		'ranking' => array(
-			'character'  => 'Character Ranking',
-			'guild'      => 'Guild Ranking',
-			'zeny'       => 'Zeny Ranking',
-			'death'      => 'Death Ranking',
-			'alchemist'  => 'Alchemist Ranking',
-			'blacksmith' => 'Blacksmith Ranking'
-		),
-		'item' => array(
-			'index' => 'List Items',
-			'add'   => 'Add Item'
-		)
-	),
 
 	'AllowMD5PasswordSearch'       => false,
 	'ReallyAllowMD5PasswordSearch' => false, // Are you POSITIVELY sure?
