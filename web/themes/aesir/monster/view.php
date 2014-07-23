@@ -1,5 +1,5 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
+<div class="box3 hide_right_container hide_left_container">
 <div class="title">Viewing Monster</div>
 <div class="content">
 <?php if ($monster): ?>

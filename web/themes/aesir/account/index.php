@@ -1,5 +1,5 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3">
+<div class="box3 hide_right_container hide_left_container">
 <div class="title">Accounts</div>
 <div class="content">
 <p class="toggler"><a href="javascript:toggleSearchForm()"><?php echo htmlspecialchars(Flux::message('SearchLabel')) ?></a></p>

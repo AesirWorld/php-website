@@ -62,10 +62,10 @@ if($_SERVER['REQUEST_URI'] == "/") {
 	header("Cache-Control: private, max-age=0, no-cache, must-revalidate");
 
 	if($langDefault) {
-		header("Location: ".$langDefault);
+		header("Location: /".$langDefault);
 	}
 	else {
-		header("Location: ".$matchCountryLang["DEFAULT"]);
+		header("Location: /".$matchCountryLang["DEFAULT"]);
 	}
 	exit;
 }

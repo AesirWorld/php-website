@@ -651,18 +651,18 @@ class Flux_Template {
 
 		if ($this->useCleanUrls) {
 			if ($actionName && $actionName != $defaultAction) {
-				$url = sprintf('%s/%s/%s/%s/%s', Flux::$languageUrl, $this->basePath, $moduleName, $actionName, $queryString);
+				$url = sprintf('%s/%s/%s/%s/%s', $this->basePath, Flux::$languageUrl, $moduleName, $actionName, $queryString);
 			}
 			else {
-				$url = sprintf('%s/%s/%s/%s', Flux::$languageUrl, $this->basePath, $moduleName, $queryString);
+				$url = sprintf('%s/%s/%s/%s', $this->basePath, Flux::$languageUrl, $moduleName, $queryString);
 			}
 		}
 		else {
 			if ($actionName && $actionName != $defaultAction) {
-				$url = sprintf('%s/%s/?module=%s&action=%s%s', Flux::$languageUrl,$this->basePath, $moduleName, $actionName, $queryString);
+				$url = sprintf('%s/%s/?module=%s&action=%s%s', $this->basePath, Flux::$languageUrl, $moduleName, $actionName, $queryString);
 			}
 			else {
-				$url = sprintf('%s/%s/?module=%s%s', Flux::$languageUrl, $this->basePath, $moduleName, $queryString);
+				$url = sprintf('%s/%s/?module=%s%s', $this->basePath, Flux::$languageUrl, $moduleName, $queryString);
 			}
 		}
 		return $serverProtocol.preg_replace('&/{2,}&', '/', "$serverAddress/$url");
@@ -856,11 +856,8 @@ class Flux_Template {
 		if (is_null($location)) {
 			$location = $this->basePath . Flux::$languageUrl;
 		}
-		else {
-			$location = Flux::$languageUrl . '/' . $location;
-		}
 
-		header("Location: $location");
+		header('Location: '.$location);
 		exit;
 	}
 

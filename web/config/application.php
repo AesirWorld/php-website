@@ -14,6 +14,7 @@ return array(
 		'br' => 'pt_br',
 		'es' => 'es_es',
 	),
+	'GameDataUrl'          => 'http://data.aesirworld.com/', //Data files folder
 	'CacheTimeLow'         => 60,         //Default cache max-age for pages that should be updated frequently, like, /main module
 	'CacheTimeMid'         => 300,         //Default cache max-age for pages that should be updated regularly, like, /account/login module
 	'CacheTimeHigh'        => 3600,         //Default cache max-age for pages that should be updated not regularly, like, /items/index module
@@ -24,7 +25,7 @@ return array(
 	'ThemeName'            => 'aesir', // Names of the themes you would like to use.  Themes are in FLUX_ROOT/themes. First theme listed will be default theme.
 	'ScriptTimeLimit'      => 0,                        // Script execution time limit. Specifies (in seconds) how long a page should run before timing out. (0 means forever)
 	'MissingEmblemBMP'     => 'empty.bmp',              //
-	'ItemIconNameFormat'   => '%d.png',                 // The filename format for item icons (defaults to {itemid}.png).
+	'ItemIconNameFormat'   => '%d.gif',                 // The filename format for item icons (defaults to {itemid}.png).
 	'ItemImageNameFormat'  => '%d.png',                 // The filename format for item images (defaults to {itemid}.png).
 	'MonsterImageNameFormat' => '%d.gif',               // The filename format for monster images (defaults to {monsterid}.gif).
 	'JobImageNameFormat'   => '%d.gif',                 // The filename format for job images (defaults to {jobid}.gif).
