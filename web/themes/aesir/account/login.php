@@ -1,21 +1,21 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Login</div>
-	<div class="content">
+<div class="title"><?php echo htmlspecialchars(Flux::message('LoginHeading')) ?></div>
+<div class="content">
 <?php if (isset($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php else: ?>
 
 <?php if ($auth->actionAllowed('account', 'create')): ?>
-<p>Forgot your password? <a href="<?php echo $this->url('account', 'resetpass') ?>">Recover!</a></p>
+<p><?php printf(Flux::message('LoginPageMakeAccount'), $this->url('account', 'create')); ?></p>
 <?php endif ?>
 
 <?php endif ?>
-<form action="<?php echo $this->url('account', 'login', array('return_url' => $params->get('return_url'))) ?>" method="post">
+<form action="<?php echo $this->url('account', 'login', array('return_url' => $params->get('return_url'))) ?>" method="post" class="generic-form">
 	<?php if (count($serverNames) === 1): ?>
 	<input type="hidden" name="server" value="<?php echo htmlspecialchars($session->loginAthenaGroup->serverName) ?>">
 	<?php endif ?>
-	<table>
+	<table class="generic-form-table">
 		<tr>
 			<th><label for="login_username"><?php echo htmlspecialchars(Flux::message('AccountUsernameLabel')) ?></label></th>
 			<td><input type="text" name="username" id="login_username" value="<?php echo htmlspecialchars($params->get('username')) ?>" /></td>
@@ -63,4 +63,5 @@
 		</tr>
 	</table>
 </form>
-</div></div>
+</div>
+</div>

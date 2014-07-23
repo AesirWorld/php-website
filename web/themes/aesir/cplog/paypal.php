@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Transações</div>
-	<div class="content">
+<div class="title">PayPal Transactions</div>
+<div class="content">
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
@@ -53,7 +53,7 @@
 		<label for="use_received_before">&mdash;</label>
 		<input type="checkbox" name="use_received_before" id="use_received_before"<?php if ($params->get('use_received_before')) echo ' checked="checked"' ?> />
 		<?php echo $this->dateField('received_before') ?>
-		
+
 		<input type="submit" value="Search" />
 		<input type="button" value="Reset" onclick="reload()" />
 	</p>
@@ -100,7 +100,13 @@
 		<td><?php echo $this->formatDateTime($txn->process_date) ?></td>
 		<td><?php echo $this->formatDateTime($txn->payment_date) ?></td>
 		<td><?php echo $txn->payment_status ?></td>
-		<td><?php echo htmlspecialchars($txn->payer_email) ?></td>
+		<td>
+			<?php if ($auth->actionAllowed('account', 'index')): ?>
+				<?php echo $this->linkToAccountSearch(array('email' => $txn->payer_email), $txn->payer_email) ?>
+			<?php else: ?>
+				<?php echo htmlspecialchars($txn->payer_email) ?>
+			<?php endif ?>
+		</td>
 		<td><?php echo $txn->mc_gross ?> <?php echo $txn->mc_currency ?></td>
 		<td><?php echo number_format((int)$txn->credits) ?></td>
 		<!--<td><?php echo htmlspecialchars($txn->server_name) ?></td>-->

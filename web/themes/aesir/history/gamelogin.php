@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title"><?php echo htmlspecialchars(Flux::message('HistoryGameLoginHeading')) ?></div>
-	<div class="content">
+<div class="title"><?php echo htmlspecialchars(Flux::message('HistoryGameLoginHeading')) ?></div>
+<div class="content">
 <?php if ($logins): ?>
 <?php echo $paginator->infoText() ?>
 <table class="horizontal-table">
@@ -14,7 +14,13 @@
 	<?php foreach ($logins as $login): ?>
 	<tr>
 		<td><?php echo $this->formatDateTime($login->time) ?></td>
-		<td><?php echo htmlspecialchars($login->ip) ?></td>
+		<td>
+		<?php if ($auth->actionAllowed('account', 'index')): ?>
+			<?php echo $this->linkToAccountSearch(array('last_ip' => $login->ip), $login->ip) ?>
+		<?php else: ?>
+			<?php echo htmlspecialchars($login->ip) ?>
+		<?php endif ?>
+		</td>
 		<td><?php echo $login->rcode ?></td>
 		<td><?php echo htmlspecialchars($login->log) ?></td>
 	</tr>

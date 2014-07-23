@@ -33,12 +33,12 @@ return array(
 			'imagedel' => AccountLevel::ADMIN
 		),
 		'account'   => array(
-			'index'    => AccountLevel::LOWGM,
+			'index'    => AccountLevel::HIGHGM,
 			'view'     => AccountLevel::NORMAL,
 			'create'   => AccountLevel::UNAUTH,
 			'login'    => AccountLevel::UNAUTH,
 			'logout'   => AccountLevel::NORMAL,
-			'transfer' => AccountLevel::LOWGM,
+			'transfer' => AccountLevel::HIGHGM,
 			'xferlog'  => AccountLevel::LOWGM,
 			'cart'     => AccountLevel::NORMAL,
 			'changepass' => AccountLevel::NORMAL,
@@ -53,15 +53,15 @@ return array(
 			'prune'        => AccountLevel::ANYONE
 		),
 		'character' => array(
-			'index'    => AccountLevel::LOWGM,
-			'view'     => AccountLevel::NORMAL,
-			'online'   => AccountLevel::LOWGM,
+			'index'    => AccountLevel::HIGHGM,
+			'view'     => AccountLevel::LOWGM,
+			'online'   => AccountLevel::HIGHGM,
 			'prefs'    => AccountLevel::NORMAL,
-			'changeslot' => AccountLevel::NORMAL,
-			'resetlook'  => AccountLevel::NORMAL,
-			'resetpos'   => AccountLevel::NORMAL,
-			'mapstats'   => AccountLevel::LOWGM,
-			'divorce'    => AccountLevel::NORMAL
+			'changeslot' => AccountLevel::LOWGM,
+			'resetlook'  => AccountLevel::LOWGM,
+			'resetpos'   => AccountLevel::HIGHGM,
+			'mapstats'   => AccountLevel::HIGHGM,
+			'divorce'    => AccountLevel::LOWGM
 		),
 		'guild'     => array(
 			'emblem'   => AccountLevel::ANYONE,

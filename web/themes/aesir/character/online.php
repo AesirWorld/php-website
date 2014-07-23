@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Quem está Online?</div>
-	<div class="content">
+<div class="title">Who's Online?</div>
+<div class="content">
 <h3>Showing players on-line <?php echo htmlspecialchars($server->serverName) ?>.</h3>
 <?php if ($auth->allowedToSearchWhosOnline): ?>
 	<p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
@@ -68,7 +68,7 @@
 		<?php else: ?>
 			<td colspan="2"><span class="not-applicable">None</span></td>
 		<?php endif ?>
-		
+
 		<td>
 		<?php if (!$char->hidemap && $auth->allowedToViewOnlinePosition): ?>
 			<?php echo htmlspecialchars(basename($char->last_map, '.gat')) ?>
@@ -83,4 +83,5 @@
 <?php else: ?>
 <p>No characters found on <?php echo htmlspecialchars($server->serverName) ?>. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div></div>
+</div>
+</div>

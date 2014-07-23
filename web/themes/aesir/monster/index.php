@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3 hide_right_container hide_left_container">
-	<div class="title">Search Mobs</div>
-	<div class="content">
+<div class="box3">
+<div class="title">Monsters</div>
+<div class="content">
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form class="search-form" method="get">
 	<?php echo $this->moduleActionFormInputs($params->get('module')) ?>

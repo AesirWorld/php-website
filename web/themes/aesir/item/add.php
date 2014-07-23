@@ -1,5 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<h2>Add Item</h2>
+<div class="box3">
+<div class="title">Add Item</div>
+<div class="content">
 <p>The only required fields are the <em>Item ID</em>, <em>Identifier</em>, <em>Name</em> and <em>Type</em> fields.</p>
 <p><strong>Note:</strong> An empty <em>NPC Sell</em> price defaults to half of the buy price in-game.</p>
 <?php if (!empty($errorMessage)): ?>
@@ -149,3 +151,5 @@
 		</tr>
 	</table>
 </form>
+</div>
+</div>

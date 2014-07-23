@@ -1,8 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title"><?php echo htmlspecialchars(Flux::message('ServerStatusHeading')) ?></span></div>
-	<div class="content">
-
+<div class="title"><?php echo htmlspecialchars(Flux::message('ServerStatusHeading')) ?></div>
+<div class="content">
 <p><?php echo htmlspecialchars(Flux::message('ServerStatusInfo')) ?></p>
 <?php foreach ($serverStatus as $privServerName => $gameServers): ?>
 <h3>Server Status for <?php echo htmlspecialchars($privServerName) ?></h3>

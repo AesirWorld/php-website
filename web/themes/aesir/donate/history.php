@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Histórico de Doação</div>
-	<div class="content">
+<div class="title">Donation History</div>
+<div class="content">
 <h3>Transactions: Completed</h3>
 <?php if ($completedTxn): ?>
 <p>You have <?php echo number_format($completedTotal) ?> completed transaction(s).</p>

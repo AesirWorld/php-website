@@ -1,10 +1,9 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-
 <div class="box3">
-	<div class="title"><?php echo htmlspecialchars(Flux::message('StoreLabel')) ?></div>
-	<div class="content">
-<p>Os itens nesta loja são comprados utilizando seus <span class="keyword">créditos de doação</span>.  Estes créditos podem ser obetidos <a href="<?php echo $this->url('donate') ?>">fazendo uma doação para o servidor</a>.</p>
-<h2>Loja do <span class="shop-server-name"><?php echo htmlspecialchars($server->serverName) ?></span></h2>
+<div class="title">Purchase</div>
+<div class="content">
+<p>Items in this shop are purchased using <span class="keyword">donation credits</span> and not real money.  Donation Credits are rewarded to players who <a href="<?php echo $this->url('donate') ?>">make a donation to our server</a>, helping us cover the costs of maintaining and running the server.</p>
+<h2><span class="shop-server-name"><?php echo htmlspecialchars($server->serverName) ?></span> Item Shop</h2>
 <p class="action">
 	<a href="<?php echo $this->url('purchase', 'index') ?>"<?php if (is_null($category)) echo ' class="current-shop-category"' ?>>
 		<?php echo htmlspecialchars(Flux::message('AllLabel')) ?> (<?php echo number_format($total) ?>)
@@ -17,110 +16,58 @@
 <?php endforeach ?>
 </p>
 <?php if ($categoryName): ?>
-<h3>Categorias: <?php echo htmlspecialchars($categoryName) ?></h3>
+<h3>Category: <?php echo htmlspecialchars($categoryName) ?></h3>
 <?php endif ?>
 <?php if ($items): ?>
-<?php
-$evens = array();
-$odds  = array();
-foreach ($items as $i => $item) {
-	if (!($i % 2)) {
-		$evens[] = $item;
-	}
-	else {
-		$odds[] = $item;
-	}
-}
-?>
-
 <?php if ($session->isLoggedIn()): ?>
-	<?php if ($cartItems=$server->cart->getCartItemNames()): ?><p class="cart-items-text">Items no seu carrinho: <span class="cart-item-name"><?php echo implode('</span>, <span class="cart-item-name">', array_map('htmlspecialchars', $cartItems)) ?></span>.</p><?php endif ?>
-	<p class="cart-info-text">Você possui <span class="cart-item-count"><?php echo number_format(count($cartItems)) ?></span> item(s) no seu carrinho.</p>
-	<p class="cart-total-text">O subtotal do seu carrinho é de <span class="cart-sub-total"><?php echo number_format($server->cart->getTotal()) ?></span> crédito(s).</p>
+	<?php if ($cartItems=$server->cart->getCartItemNames()): ?><p class="cart-items-text">Items in your cart: <span class="cart-item-name"><?php echo implode('</span>, <span class="cart-item-name">', array_map('htmlspecialchars', $cartItems)) ?></span>.</p><?php endif ?>
+	<p class="cart-info-text">You have <span class="cart-item-count"><?php echo number_format(count($cartItems)) ?></span> item(s) in your cart.</p>
+	<p class="cart-total-text">Your current subtotal is <span class="cart-sub-total"><?php echo number_format($server->cart->getTotal()) ?></span> credit(s).</p>
 <?php endif ?>
-
+<?php echo $paginator->infoText() ?>
 <table class="shop-table">
+	<?php foreach ($items as $item): ?>
 	<tr>
-		<td width="50%">
-			<?php foreach ($evens as $i => $item): ?>
-				<div class="shop-item <?php echo (!($i % 2) ? 'even' : 'odd') ?>">
-					<table>
-						<tr>
-							<?php if (($item->shop_item_use_existing && ($image=$this->itemImage($item->shop_item_nameid))) || ($image=$this->shopItemImage($item->shop_item_id))): ?>
-							<td>
-								<img src="<?php echo $image ?>?nocache=<?php echo rand() ?>" class="shop-item-image" />
-							</td>
-							<?php endif ?>
-							<td>
-								<h4 class="shop-item-name"><?php echo htmlspecialchars($item->shop_item_name) ?></h4>
-								<?php if ($item->shop_item_qty > 1): ?>
-								<p class="shop-item-qty">Quantidade: <span class="qty"><?php echo number_format($item->shop_item_qty) ?></span></p>
-								<?php endif ?>
-								<p class="shop-item-cost"><span class="cost"><?php echo number_format($item->shop_item_cost) ?></span> créditos</p>
-								<p class="shop-item-info"><?php echo Markdown($item->shop_item_info) ?></p>
-								<p class="shop-item-action">
-									<?php if ($auth->actionAllowed('purchase', 'add')): ?>
-									<a href="<?php echo $this->url('purchase', 'add', array('id' => $item->shop_item_id)) ?>"><strong>Adicionar ao Carrinho</strong></a>
-									<?php endif ?>
-									<?php if ($auth->actionAllowed('item', 'view')): ?>
-									/ <?php echo $this->linkToItem($item->shop_item_nameid, 'View Item') ?>
-									<?php endif ?>
-									<?php if ($auth->allowedToEditShopItem): ?>
-									/ <a href="<?php echo $this->url('itemshop', 'edit', array('id' => $item->shop_item_id)) ?>">Modificar</a>
-									<?php endif ?>
-									<?php if ($auth->allowedToDeleteShopItem): ?>
-									/ <a href="<?php echo $this->url('itemshop', 'delete', array('id' => $item->shop_item_id)) ?>"
-										onclick="return confirm('Are you sure you want to remove this item from the item shop?')">Deletar</a>
-									<?php endif ?>
-								</p>
-							</td>
-						</tr>
-					</table>
-				</div>
-			<?php endforeach ?>
+		<td class="shop-item-image">
+		<?php if (($item->shop_item_use_existing && ($image=$this->itemImage($item->shop_item_nameid))) || ($image=$this->shopItemImage($item->shop_item_id))): ?>
+			<img src="<?php echo $image ?>?nocache=<?php echo rand() ?>" />
+		<?php endif ?>
 		</td>
-
-		<td width="50%">
-			<?php foreach ($odds as $i => $item): ?>
-				<div class="shop-item <?php echo (!($i % 2) ? 'even' : 'odd') ?>">
-					<table>
-						<tr>
-							<?php if (($item->shop_item_use_existing && ($image=$this->itemImage($item->shop_item_nameid))) || ($image=$this->shopItemImage($item->shop_item_id))): ?>
-							<td>
-								<img src="<?php echo $image ?>?nocache=<?php echo rand() ?>" class="shop-item-image" />
-							</td>
-							<?php endif ?>
-							<td>
-								<h4 class="shop-item-name"><?php echo htmlspecialchars($item->shop_item_name) ?></h4>
-								<?php if ($item->shop_item_qty > 1): ?>
-								<p class="shop-item-qty">Quantity: <span class="qty"><?php echo number_format($item->shop_item_qty) ?></span></p>
-								<?php endif ?>
-								<p class="shop-item-cost"><span class="cost"><?php echo number_format($item->shop_item_cost) ?></span> credits</p>
-								<p class="shop-item-info"><?php echo Markdown($item->shop_item_info) ?></p>
-								<p class="shop-item-action">
-									<?php if ($auth->actionAllowed('purchase', 'add')): ?>
-									<a href="<?php echo $this->url('purchase', 'add', array('id' => $item->shop_item_id)) ?>"><strong>Add to cart</strong></a>
-									<?php endif ?>
-									<?php if ($auth->actionAllowed('item', 'view')): ?>
-									/ <?php echo $this->linkToItem($item->shop_item_nameid, 'View Item') ?>
-									<?php endif ?>
-									<?php if ($auth->allowedToEditShopItem): ?>
-									/ <a href="<?php echo $this->url('itemshop', 'edit', array('id' => $item->shop_item_id)) ?>">Modify</a>
-									<?php endif ?>
-									<?php if ($auth->allowedToDeleteShopItem): ?>
-									/ <a href="<?php echo $this->url('itemshop', 'delete', array('id' => $item->shop_item_id)) ?>"
-										onclick="return confirm('Are you sure you want to remove this item from the item shop?')">Delete</a>
-									<?php endif ?>
-								</p>
-							</td>
-						</tr>
-					</table>
-				</div>
-			<?php endforeach ?>
+		<td>
+			<h4 class="shop-item-name">
+				<?php if ($item->shop_item_qty > 1): ?>
+				<span class="qty"><?php echo number_format($item->shop_item_qty) ?>x</span>
+				<?php endif ?>
+				<?php echo $this->linkToItem($item->shop_item_nameid, $item->shop_item_name) ?>
+			</h4>
+			<p class="shop-item-info"><?php echo Markdown($item->shop_item_info) ?></p>
+			<p class="shop-item-action">
+				<?php if ($auth->actionAllowed('item', 'view')): ?>
+				<?php echo $this->linkToItem($item->shop_item_nameid, 'View Item') ?>
+				<?php endif ?>
+				<?php if ($auth->allowedToEditShopItem): ?>
+				/ <a href="<?php echo $this->url('itemshop', 'edit', array('id' => $item->shop_item_id)) ?>">Modify</a>
+				<?php endif ?>
+				<?php if ($auth->allowedToDeleteShopItem): ?>
+				/ <a href="<?php echo $this->url('itemshop', 'delete', array('id' => $item->shop_item_id, 'Session' => Flux_Security::csrfGet('Session'))) ?>"
+					onclick="return confirm('Are you sure you want to remove this item from the item shop?')">Delete</a>
+				<?php endif ?>
+			</p>
+		</td>
+		<td class="shop-item-cost-qty">
+			<p><span class="cost"><?php echo number_format($item->shop_item_cost) ?></span> credits.</p>
+			<p class="shop-item-action">
+				<?php if ($auth->actionAllowed('purchase', 'add')): ?>
+				<a href="<?php echo $this->url('purchase', 'add', array('id' => $item->shop_item_id)) ?>"><strong>Add to Cart</strong></a>
+				<?php endif ?>
+			</p>
 		</td>
 	</tr>
+	<?php endforeach ?>
 </table>
+<?php echo $paginator->getHTML() ?>
 <?php else: ?>
-<p>The store is empty.</p>
+<p>There are currently no items for sale.</p>
 <?php endif ?>
-</div></div>
+</div>
+</div>

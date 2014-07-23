@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title"><?php echo htmlspecialchars(Flux::message('PickLogHeading')) ?></div>
-	<div class="content">
+<div class="title"><?php echo htmlspecialchars(Flux::message('PickLogHeading')) ?></div>
+<div class="content">
 <?php if ($picks): ?>
 <?php echo $paginator->infoText() ?>
 <table class="horizontal-table">
@@ -33,7 +33,7 @@
 					<?php if ($auth->actionAllowed('character', 'view') && $auth->allowedToViewCharacter): ?>
 						<strong><?php echo $this->linkToCharacter($pick->char_id, $pick->char_name) ?></strong>
 					<?php else: ?>
-						<strong><?php echo htmlspecialchars($pick->char_name) ?></strong>	
+						<strong><?php echo htmlspecialchars($pick->char_name) ?></strong>
 					<?php endif ?>
 				<?php endif ?>
 			<?php elseif ($pick->char_id): ?>
@@ -47,7 +47,7 @@
 					<?php if ($auth->actionAllowed('character', 'view') && $auth->allowedToViewCharacter): ?>
 						<strong><?php echo $this->linkToCharacter($pick->char_id, $pick->char_id) ?></strong>
 					<?php else: ?>
-						<strong><?php echo htmlspecialchars($pick->char_id) ?></strong>	
+						<strong><?php echo htmlspecialchars($pick->char_id) ?></strong>
 					<?php endif ?>
 				<?php endif ?>
 			<?php else: ?>
@@ -81,7 +81,7 @@
 			<?php endif ?>
 		</td>
 		<td><?php echo $pick->amount >= 0 ? '+'.number_format($pick->amount) : number_format($pick->amount) ?></td>
-		<td>+<?php echo $pick->refine ?></td>
+		<td><?php echo $pick->refine ?></td>
 		<!-- Card0 -->
 		<td>
 			<?php if ($pick->card0_name): ?>

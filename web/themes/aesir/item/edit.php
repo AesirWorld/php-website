@@ -1,5 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<h2>Modify Item</h2>
+<div class="box3">
+<div class="title">Modify Item</div>
+<div class="content">
 <?php if ($item): ?>
 <p>The only required fields are the <em>Item ID</em>, <em>Identifier</em>, <em>Name</em> and <em>Type</em> fields.</p>
 <p><strong>Note:</strong> An empty <em>NPC Sell</em> price defaults to half of the buy price in-game.</p>
@@ -161,3 +163,5 @@
 <?php else: ?>
 <p>No such item found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
+</div>
+</div>

@@ -1,18 +1,17 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-
 <div class="box3">
-	<div class="title">Retiradas Pendentes</span></div>
-	<div class="content">
+<div class="title">Pending Redemption</div>
+<div class="content">
 <?php if ($items): ?>
-<p>Você <?php echo number_format($total) ?> item(s) na entregadora.</p>
+<p>You have <?php echo number_format($total) ?> item(s) pending redemption.</p>
 <table class="vertical-table">
 	<tr>
-		<th>Item</th>
-		<th>Quantidade</th>
-		<th>Custo</th>
-		<th>Crédito (Antes)</th>
-		<th>Crédito (Depois)</th>
-		<th>Data da Comra</th>
+		<th>Item Name</th>
+		<th>Quantity</th>
+		<th>Cost</th>
+		<th>Balance (Before)</th>
+		<th>Balance (After)</th>
+		<th>Purchase Date</th>
 	</tr>
 	<?php foreach ($items as $item): ?>
 	<tr>
@@ -31,14 +30,14 @@
 		<td><?php echo number_format($item->cost) ?></td>
 		<td><?php echo number_format($item->credits_before) ?></td>
 		<td><?php echo number_format($item->credits_after) ?></td>
-		
+
 		<td><?php echo $this->formatDateTime($item->purchase_date) ?></td>
 	</tr>
 	<?php endforeach ?>
 </table>
 <?php else: ?>
-<p>Você atualmente não tem nenhum item já comprado nesta loja.
-	Se você gostaria de realizar uma compra, por favor siga para <a href="<?php echo $this->url('purchase') ?>">shop</a>.</p>
+<p>You currently have no items pending redemption.
+	If you would like to make a purchase, please go to the <a href="<?php echo $this->url('purchase') ?>">shop</a>.</p>
 <?php endif ?>
 </div>
 </div>

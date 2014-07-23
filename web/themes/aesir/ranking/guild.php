@@ -1,8 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-
 <div class="box3">
-	<div class="title">Ranking <span class="text_highlight2">de Guildas</span></div>
-	<div class="content">
+<div class="title">Guild Ranking</div>
+<div class="content">
 <h3>
 	Top <?php echo number_format($limit=(int)Flux::config('GuildRankingLimit')) ?> Guilds
 	on <?php echo htmlspecialchars($server->serverName) ?>
@@ -13,6 +12,7 @@
 			<th>Rank</th>
 			<th colspan="2">Guild Name</th>
 			<th>Guild Level</th>
+			<th>Castles Owned</th>
 			<th>Members</th>
 			<th>Average Level</th>
 			<th>Experience</th>
@@ -32,6 +32,7 @@
 				<?php endif ?>
 			</strong></td>
 			<td><?php echo number_format($guilds[$i]->guild_lv) ?></td>
+			<td><?php echo number_format($guilds[$i]->castles) ?></td>
 			<td><?php echo number_format($guilds[$i]->members) ?></td>
 			<td><?php echo number_format($guilds[$i]->average_lv) ?></td>
 			<td><?php echo number_format($guilds[$i]->exp) ?></td>

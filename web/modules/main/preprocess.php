@@ -91,4 +91,11 @@ if (!$auth->allowedToViewWoeDisallowed && ($woeDisallowModule || $woeDisallowAct
 	$session->setMessageData(Flux::message('DisallowedDuringWoE'));
 	$this->redirect();
 }
+
+//Sidebar Ranking
+$sth = $server->connection->getStatement("SELECT `name`, `base_level` FROM `{$server->charMapDatabase}`.`char` ORDER BY `base_level` DESC LIMIT 10");
+
+$sth->execute();
+
+$ranking = $sth->fetchAll();
 ?>

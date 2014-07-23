@@ -1,14 +1,13 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-
 <div class="box3">
-	<div class="title">Ranking <span class="text_highlight3">de Zeny</span></div>
-	<div class="content">
+<div class="title">Zeny Ranking</div>
+<div class="content">
 <h3>
-	Top <?php echo number_format($limit=(int)Flux::config('CharRankingLimit')) ?> Mais Ricos
+	Top <?php echo number_format($limit=(int)Flux::config('ZenyRankingLimit')) ?> Richest Characters
 	<?php if (!is_null($jobClass)): ?>
 	(<?php echo htmlspecialchars($className=$this->jobClassText($jobClass)) ?>)
 	<?php endif ?>
-	do <?php echo htmlspecialchars($server->serverName) ?>
+	on <?php echo htmlspecialchars($server->serverName) ?>
 </h3>
 <?php if ($chars): ?>
 <form action="" method="get" class="search-form2">
@@ -24,7 +23,7 @@
 			</option>
 		<?php endforeach ?>
 		</select>
-		
+
 		<input type="submit" value="Filter" />
 		<input type="button" value="Reset" onclick="reload()" />
 	</p>
@@ -51,7 +50,7 @@
 				<?php echo htmlspecialchars($chars[$i]->char_name) ?>
 			<?php endif ?>
 		</strong></td>
-		<td><?php echo number_format((float)$chars[$i]->zeny) ?></td>
+		<td><?php echo number_format((int)$chars[$i]->zeny) ?></td>
 		<td><?php echo $this->jobClassText($chars[$i]->char_class) ?></td>
 		<td><?php echo number_format($chars[$i]->base_level) ?></td>
 		<td><?php echo number_format($chars[$i]->job_level) ?></td>

@@ -1,5 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<h2>Duplicate Item</h2>
+<div class="box3">
+<div class="title">Duplicate Item</div>
+<div class="content">
 <?php if ($item): ?>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
@@ -40,3 +42,5 @@
 <?php else: ?>
 <p>No such item found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
+</div>
+</div>

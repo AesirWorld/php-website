@@ -3,29 +3,30 @@ if (!defined('FLUX_ROOT')) exit;
 $markdownURL = 'http://daringfireball.net/projects/markdown/syntax';
 ?>
 <div class="box3">
-	<div class="title">Item Shop</div>
-	<div class="content">
+<div class="title">Item Shop</div>
+<div class="content">
 <h3>Modify Item in the Shop</h3>
-<?php if ($shop_item): ?>
+<?php if ($item): ?>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php endif ?>
 <form action="<?php echo $this->urlWithQs ?>" method="post" enctype="multipart/form-data">
+<?php echo Flux_Security::csrfGenerate('ItemShopEdit', true) ?>
 <?php if (!$stackable): ?>
 <input type="hidden" name="qty" value="1" />
 <?php endif ?>
 <table class="vertical-table">
 	<tr>
 		<th>Shop ID</th>
-		<td><?php echo htmlspecialchars($shop_item->shop_item_id) ?></td>
+		<td><?php echo htmlspecialchars($item->shop_item_id) ?></td>
 	</tr>
 	<tr>
 		<th>Item ID</th>
-		<td><?php echo $this->linkToItem($shop_item->shop_item_nameid, $shop_item->shop_item_nameid) ?></td>
+		<td><?php echo $this->linkToItem($item->shop_item_nameid, $item->shop_item_nameid) ?></td>
 	</tr>
 	<tr>
 		<th>Name</th>
-		<td><?php echo htmlspecialchars($shop_item->shop_item_name) ?></td>
+		<td><?php echo htmlspecialchars($item->shop_item_name) ?></td>
 	</tr>
 	<tr>
 		<th><label for="category">Category</label></th>
@@ -60,12 +61,12 @@ $markdownURL = 'http://daringfireball.net/projects/markdown/syntax';
 		<th><label for="image">Image</label></th>
 		<td>
 			<input type="file" name="image" id="image" />
-			<label>Attempt to use existing item image? <input type="checkbox" name="use_existing" value="1"<?php if ($shop_item->shop_item_use_existing) echo ' checked="checked"' ?> /></label>
-			<?php if ($image=$this->shopItemImage($shop_item->shop_item_id)): ?>
+			<label>Attempt to use existing item image? <input type="checkbox" name="use_existing" value="1"<?php if ($item->shop_item_use_existing) echo ' checked="checked"' ?> /></label>
+			<?php if ($image=$this->shopItemImage($item->shop_item_id)): ?>
 			<p>
 				Current image:
 				<?php if ($auth->actionAllowed('itemshop', 'imagedel')): ?>
-					<a href="<?php echo $this->url('itemshop', 'imagedel', array('id' => $shop_item->shop_item_id)) ?>">(Delete)</a>
+					<a href="<?php echo $this->url('itemshop', 'imagedel', array('id' => $item->shop_item_id, 'Session' => Flux_Security::csrfGet('Session') )) ?>">(Delete)</a>
 				<?php endif ?>
 			</p>
 			<p><img src="<?php echo $image ?>" /></p>
@@ -82,4 +83,5 @@ $markdownURL = 'http://daringfireball.net/projects/markdown/syntax';
 <?php else: ?>
 <p>Cannot modify an unknown item to the item shop. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div></div>
+</div>
+</div>

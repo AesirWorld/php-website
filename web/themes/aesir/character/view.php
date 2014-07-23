@@ -1,11 +1,16 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3 hide_right_container">
-	<div class="title">Viewing Character</div>
-	<div class="content">
+<div class="box3">
+<div class="title">Viewing Character</div>
+<div class="content">
 <?php if ($char): ?>
 <h3>Character Information for <?php echo htmlspecialchars($char->char_name) ?></h3>
 <table class="vertical-table">
 	<tr>
+		<?php if ($image=$this->jobImage($char->gender, $char->char_class)): ?>
+			<td rowspan="11" style="width: 150px; text-align: center; vertical-alignment: middle">
+				<img src="<?php echo $image ?>" />
+			</td>
+		<?php endif ?>
 		<th>Character ID</th>
 		<td colspan="2"><?php echo htmlspecialchars($char->char_id) ?></td>
 		<th>Account ID</th>
@@ -126,7 +131,7 @@
 				<td><img src="<?php echo $this->emblem($char->guild_id) ?>" /></td>
 				<?php endif ?>
 				<td<?php if (!$char->guild_emblem_len) echo ' colspan="2"' ?>>
-					<?php if ($auth->allowedToViewGuild): ?>
+					<?php if ($auth->actionAllowed('guild', 'view')): ?>
 						<?php echo $this->linkToGuild($char->guild_id, $char->guild_name) ?>
 					<?php else: ?>
 						<?php echo htmlspecialchars($char->guild_name) ?>
@@ -256,7 +261,7 @@
 				<?php if ($partyMember->guild_name): ?>
 					<td><img src="<?php echo $this->emblem($partyMember->guild_id) ?>" /></td>
 					<td>
-						<?php if ($auth->allowedToViewGuild): ?>
+						<?php if (($auth->actionAllowed('guild', 'view') && $partyMember->guild_id == $char->guild_id) || $auth->allowedToViewGuild): ?>
 							<?php echo $this->linkToGuild($partyMember->guild_id, $partyMember->guild_name) ?>
 						<?php else: ?>
 							<?php echo htmlspecialchars($partyMember->guild_name) ?>
@@ -314,7 +319,7 @@
 				<td><img src="<?php echo $this->emblem($friend->guild_id) ?>" /></td>
 				<?php endif ?>
 				<td<?php if (!$friend->guild_emblem_len) echo ' colspan="2"' ?>>
-					<?php if ($auth->allowedToViewGuild): ?>
+					<?php if (($auth->actionAllowed('guild', 'view') && $friend->guild_id == $char->guild_id) || $auth->allowedToViewGuild): ?>
 						<?php echo $this->linkToGuild($friend->guild_id, $friend->guild_name) ?>
 					<?php else: ?>
 						<?php echo htmlspecialchars($friend->guild_name) ?>
@@ -346,13 +351,11 @@
 			<th colspan="2">Name</th>
 			<th>Amount</th>
 			<th>Identified</th>
-			<th>Refine Level</th>
 			<th>Broken</th>
 			<th>Card0</th>
 			<th>Card1</th>
 			<th>Card2</th>
 			<th>Card3</th>
-			</th>
 		</tr>
 		<?php foreach ($items AS $item): ?>
 		<?php $icon = $this->iconImage($item->nameid) ?>
@@ -361,13 +364,29 @@
 			<?php if ($icon): ?>
 				<td><img src="<?php echo htmlspecialchars($icon) ?>" /></td>
 			<?php endif ?>
-			<td<?php if (!$icon) echo ' colspan="2"' ?>>
-				<?php if ($item->char_name): ?>
-					<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
-						<?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName) . "'s" ?>
+			<td<?php if (!$icon) echo ' colspan="2"' ?><?php if ($item->cardsOver) echo ' class="overslotted' . $item->cardsOver . '"'; else echo ' class="normalslotted"' ?>>
+				<?php if ($item->refine > 0): ?>
+					+<?php echo htmlspecialchars($item->refine) ?>
+				<?php endif ?>
+				<?php if ($item->card0 == 255 && intval($item->card1/1280) > 0): ?>
+					<?php for ($i = 0; $i < intval($item->card1/1280); $i++): ?>
+						Very
+					<?php endfor ?>
+					Strong
+				<?php endif ?>
+				<?php if ($item->card0 == 254 || $item->card0 == 255): ?>
+					<?php if ($item->char_name): ?>
+						<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
+							<?php echo $this->linkToCharacter($item->char_id, $item->char_name, $session->serverName) . "'s" ?>
+						<?php else: ?>
+							<?php echo htmlspecialchars($item->char_name . "'s") ?>
+						<?php endif ?>
 					<?php else: ?>
-						<?php echo htmlspecialchars($item->char_name . "'s") ?>
+						<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>'s
 					<?php endif ?>
+				<?php endif ?>
+				<?php if ($item->card0 == 255 && array_key_exists($item->card1%1280, $itemAttributes)): ?>
+					<?php echo htmlspecialchars($itemAttributes[$item->card1%1280]) ?>
 				<?php endif ?>
 				<?php if ($item->name_japanese): ?>
 					<span class="item_name"><?php echo htmlspecialchars($item->name_japanese) ?></span>
@@ -386,7 +405,6 @@
 					<span class="identified no">No</span>
 				<?php endif ?>
 			</td>
-			<td><?php echo htmlspecialchars($item->refine) ?></td>
 			<td>
 				<?php if ($item->attribute): ?>
 					<span class="broken yes">Yes</span>
@@ -454,7 +472,6 @@
 			<th colspan="2">Name</th>
 			<th>Amount</th>
 			<th>Identified</th>
-			<th>Refine Level</th>
 			<th>Broken</th>
 			<th>Card0</th>
 			<th>Card1</th>
@@ -469,13 +486,29 @@
 			<?php if ($icon): ?>
 			<td><img src="<?php echo htmlspecialchars($icon) ?>" /></td>
 			<?php endif ?>
-			<td<?php if (!$icon) echo ' colspan="2"' ?>>
-				<?php if ($cart_item->char_name): ?>
-					<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
-						<?php echo $this->linkToCharacter($cart_item->char_id, $cart_item->char_name, $session->serverName) . "'s" ?>
+			<td<?php if (!$icon) echo ' colspan="2"' ?><?php if ($item->cardsOver) echo ' class="overslotted' . $item->cardsOver . '"'; else echo ' class="normalslotted"' ?>>
+				<?php if ($cart_item->refine > 0): ?>
+					+<?php echo htmlspecialchars($cart_item->refine) ?>
+				<?php endif ?>
+				<?php if ($cart_item->card0 == 255 && intval($cart_item->card1/1280) > 0): ?>
+					<?php for ($i = 0; $i < intval($cart_item->card1/1280); $i++): ?>
+						Very
+					<?php endfor ?>
+					Strong
+				<?php endif ?>
+				<?php if ($cart_item->card0 == 254 || $cart_item->card0 == 255): ?>
+					<?php if ($cart_item->char_name): ?>
+						<?php if ($auth->actionAllowed('character', 'view') && ($isMine || (!$isMine && $auth->allowedToViewCharacter))): ?>
+							<?php echo $this->linkToCharacter($cart_item->char_id, $cart_item->char_name, $session->serverName) . "'s" ?>
+						<?php else: ?>
+							<?php echo htmlspecialchars($cart_item->char_name . "'s") ?>
+						<?php endif ?>
 					<?php else: ?>
-						<?php echo htmlspecialchars($cart_item->char_name . "'s") ?>
+						<span class="not-applicable"><?php echo htmlspecialchars(Flux::message('UnknownLabel')) ?></span>'s
 					<?php endif ?>
+				<?php endif ?>
+				<?php if ($item->card0 == 255 && array_key_exists($item->card1%1280, $itemAttributes)): ?>
+					<?php echo htmlspecialchars($itemAttributes[$item->card1%1280]) ?>
 				<?php endif ?>
 				<?php if ($cart_item->name_japanese): ?>
 					<span class="item_name"><?php echo htmlspecialchars($cart_item->name_japanese) ?></span>
@@ -494,7 +527,6 @@
 					<span class="identified no">No</span>
 				<?php endif ?>
 			</td>
-			<td><?php echo htmlspecialchars($cart_item->refine) ?></td>
 			<td>
 				<?php if ($cart_item->attribute): ?>
 					<span class="broken yes">Yes</span>
@@ -556,22 +588,5 @@
 <?php else: ?>
 <p>No such character was found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-
-<?php if (isset($pvp_kill_log)): ?>
-<h3>PvP Logs For <?php echo htmlspecialchars($char->char_name) ?></h3>
-<table class="vertical-table">
-<tr>
-<th>Time</th>
-<th>Map</th>
-<th>Name</th>
-</tr>
-<?php foreach ($pvp_kill_log AS $log): ?>
-<tr>
-<td><?php echo $log->time ?></td>
-<td><?php echo $log->map ?></td>
-<td><?php echo $this->linkToCharacter($log->char_id, $log->name) ?></td>
-</tr>
-<?php endforeach ?>
-</table>
-<?php endif ?>
-</div></div>
+</div>
+</div>

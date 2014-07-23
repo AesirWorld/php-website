@@ -1,10 +1,9 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-
 <div class="box3">
-	<div class="title">Ranking <span class="text_highlight3">de PvP</span></div>
-	<div class="content">
+<div class="title">Death Ranking</div>
+<div class="content">
 <h3>
-	Top <?php echo number_format($limit=(int)Flux::config('PvPRankingLimit')) ?> Players do PvP
+	Top <?php echo number_format($limit=(int)Flux::config('DeathRankingLimit')) ?> Most Killed Characters
 	<?php if (!is_null($jobClass)): ?>
 	(<?php echo htmlspecialchars($className=$this->jobClassText($jobClass)) ?>)
 	<?php endif ?>
@@ -12,7 +11,7 @@
 </h3>
 <?php if ($chars): ?>
 <form action="" method="get" class="search-form2">
-	<?php echo $this->moduleActionFormInputs('ranking', 'pvp') ?>
+	<?php echo $this->moduleActionFormInputs('ranking', 'death') ?>
 	<p>
 		<label for="jobclass">Filter by job class:</label>
 		<select name="jobclass" id="jobclass">
@@ -24,7 +23,7 @@
 			</option>
 		<?php endforeach ?>
 		</select>
-		
+
 		<input type="submit" value="Filter" />
 		<input type="button" value="Reset" onclick="reload()" />
 	</p>
@@ -32,17 +31,16 @@
 <table class="horizontal-table">
 	<tr>
 		<th>Rank</th>
-		<th>Player</th>
-		<th>Classe</th>
-		<th>Matou</th>
-		<th>Morreu</th>
-		<th>Saldo</th>
-		<th>KD</th>
+		<th>Character Name</th>
+		<th>Deaths</th>
+		<th>Job Class</th>
+		<th>Base Level</th>
+		<th>Job Level</th>
 		<th colspan="2">Guild Name</th>
 	</tr>
 	<?php $topRankType = !is_null($jobClass) ? $className : 'character' ?>
 	<?php for ($i = 0; $i < $limit; ++$i): ?>
-	<tr<?php if (!isset($chars[$i])) echo ' class="empty-row"'; if ($i === 0) echo ' class="top-ranked" title="<strong>'.htmlspecialchars($chars[$i]->char_name).'</strong> é o primeiro '.$topRankType.'!"' ?>>
+	<tr<?php if (!isset($chars[$i])) echo ' class="empty-row"'; if ($i === 0) echo ' class="top-ranked" title="<strong>'.htmlspecialchars($chars[$i]->char_name).'</strong> is the most killed '.$topRankType.'!"' ?>>
 		<td align="right"><?php echo number_format($i + 1) ?></td>
 		<?php if (isset($chars[$i])): ?>
 		<td><strong>
@@ -52,11 +50,10 @@
 				<?php echo htmlspecialchars($chars[$i]->char_name) ?>
 			<?php endif ?>
 		</strong></td>
+		<td><?php echo number_format((int)$chars[$i]->death_count) ?></td>
 		<td><?php echo $this->jobClassText($chars[$i]->char_class) ?></td>
-		<td><?php echo (int)$chars[$i]->kills ?></td>
-		<td><?php echo (int)$chars[$i]->deaths ?></td>
-		<td><?php echo (int)$chars[$i]->points ?></td>
-		<td><?php echo (float)$chars[$i]->kd ?></td>
+		<td><?php echo number_format($chars[$i]->base_level) ?></td>
+		<td><?php echo number_format($chars[$i]->job_level) ?></td>
 		<?php if ($chars[$i]->guild_name): ?>
 		<?php if ($chars[$i]->guild_emblem_len): ?>
 		<td width="24"><img src="<?php echo $this->emblem($chars[$i]->guild_id) ?>" /></td>

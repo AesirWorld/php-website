@@ -2,26 +2,26 @@
 if (!defined('FLUX_ROOT')) exit;
 $markdownURL = 'http://daringfireball.net/projects/markdown/syntax';
 ?>
-<div class="box3">
-	<div class="title">Item Shop</div>
-	<div class="content">
+<div class="title">Item Shop</div>
+<div class="content">
 <h3>Add Item to the Shop</h3>
-<?php if ($shop_item): ?>
+<?php if ($item): ?>
 <?php if (!empty($errorMessage)): ?>
 <p class="red"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php endif ?>
 <form action="<?php echo $this->urlWithQs ?>" method="post" enctype="multipart/form-data">
+<?php echo Flux_Security::csrfGenerate('ItemShopAdd', true) ?>
 <?php if (!$stackable): ?>
 <input type="hidden" name="qty" value="1" />
 <?php endif ?>
 <table class="vertical-table">
 	<tr>
 		<th>Item ID</th>
-		<td><?php echo $this->linkToItem($shop_item->item_id, $shop_item->item_id) ?></td>
+		<td><?php echo $this->linkToItem($item->item_id, $item->item_id) ?></td>
 	</tr>
 	<tr>
 		<th>Name</th>
-		<td><?php echo htmlspecialchars($shop_item->item_name) ?></td>
+		<td><?php echo htmlspecialchars($item->item_name) ?></td>
 	</tr>
 	<tr>
 		<th><label for="category">Category</label></th>
@@ -69,4 +69,5 @@ $markdownURL = 'http://daringfireball.net/projects/markdown/syntax';
 <?php else: ?>
 <p>Cannot add an unknown item to the item shop. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div></div>
+</div>
+</div>

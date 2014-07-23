@@ -1,22 +1,16 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3 register">
-	<div class="title"><?php echo htmlspecialchars(Flux::message('RegisterPageTitle')) ?></div>
-    <div class="content">
+<div class="box3">
+<div class="title"><?php echo htmlspecialchars(Flux::message('AccountCreateHeading')) ?></div>
+<div class="content">
 
-
-<p><?php echo htmlspecialchars(Flux::message('AccountCreateInfo')) ?></p>
-<?php if (Flux::config('RequireEmailConfirm')): ?>
-<p><strong>Note:</strong> You will need to provide a working e-mail address to confirm your account before you can log-in.</p>
-<?php endif ?>
 <?php if (isset($errorMessage)): ?>
 <p class="red" style="font-weight: bold"><?php echo htmlspecialchars($errorMessage) ?></p>
 <?php endif ?>
-
-
-<form action="<?php echo $this->url ?>" method="post">
+<form action="<?php echo $this->url ?>" method="post" class="generic-form">
 	<?php if (count($serverNames) === 1): ?>
 	<input type="hidden" name="server" value="<?php echo htmlspecialchars($session->loginAthenaGroup->serverName) ?>">
 	<?php endif ?>
+
 	<table class="generic-form-table">
 		<?php if (count($serverNames) > 1): ?>
 		<tr>
@@ -38,7 +32,24 @@
 
 		<tr>
 			<th><label for="register_password"><?php echo htmlspecialchars(Flux::message('AccountPasswordLabel')) ?></label></th>
-			<td><input type="password" name="password" id="register_password" /></td>
+			<td>
+				<input type="password" name="password" id="register_password" />
+				<strong title="<?php
+					echo '* ' . sprintf(Flux::message('account.create.PasswordLen'), Flux::config('MinPasswordLength'), Flux::config('MaxPasswordLength')) . '</br>';
+					if(Flux::config('PasswordMinUpper') > 0) {
+						echo '</br>* ' . sprintf(Flux::message('PasswordNeedUpper'), Flux::config('PasswordMinUpper')) . '</br>';
+					}
+					if(Flux::config('PasswordMinLower') > 0) {
+						echo '</br>* ' . sprintf(Flux::message('PasswordNeedLower'), Flux::config('PasswordMinLower')) . '</br>';
+					}
+					if(Flux::config('PasswordMinNumber') > 0) {
+						echo '</br>* ' . sprintf(Flux::message('PasswordNeedNumber'), Flux::config('PasswordMinNumber')) . '</br>';
+					}
+					if(Flux::config('PasswordMinSymbol') > 0) {
+						echo '</br>* ' . sprintf(Flux::message('PasswordNeedSymbol'), Flux::config('PasswordMinSymbol')) . '</br>';
+					}
+				?>">?</strong>
+			</td>
 		</tr>
 
 		<tr>
@@ -48,7 +59,12 @@
 
 		<tr>
 			<th><label for="register_email_address"><?php echo htmlspecialchars(Flux::message('AccountEmailLabel')) ?></label></th>
-			<td><input type="text" name="email_address" id="register_email_address" value="<?php echo htmlspecialchars($params->get('email_address')) ?>" /></td>
+			<td>
+				<input type="text" name="email_address" id="register_email_address" value="<?php echo htmlspecialchars($params->get('email_address')) ?>" />
+				<?php if (Flux::config('RequireEmailConfirm')): ?>
+				* <?php echo Flux::message('account.create.WorkingEmail') ?>
+				<?php endif ?>
+			</td>
 		</tr>
 
 		<tr>
@@ -63,21 +79,8 @@
 		</tr>
 
 		<tr>
-			<th><label>Onde você conheceu o servidor? (opcional)</label></th>
-			<td>
-				<p>
-					<label>
-						<select name="source" id="register_source" value="">
-							<option value=""></option>
-							<option value="amigos">Amigos</option>
-							<option value="facebook">Facebook</option>
-							<option value="google">Google</option>
-							<option value="outros">Outros</option>
-						</select>
-					</label>
-					<strong title="Escolha a opção que mais se aproxima a como você conheceu o servidor.">?</strong>
-				</p>
-			</td>
+			<th><label><?php echo htmlspecialchars(Flux::message('AccountBirthdateLabel')) ?></label></th>
+			<td><?php echo $this->dateField('birthdate',null,0) ?></td>
 		</tr>
 
 		<?php if (Flux::config('UseCaptcha')): ?>
@@ -105,15 +108,14 @@
 			<td></td>
 			<td>
 				<div style="margin-bottom: 5px">
-					<?php printf(Flux::message('AccountCreateInfo2'), 'http://www.rfoo.net/forum/index.php?/topic/2-regras-oficiais-jogo/') ?>
+					<?php printf(htmlspecialchars(Flux::message('AccountCreateInfo2')), '<a href="'.$this->url('service', 'tos').'">'.Flux::message('AccountCreateTerms').'</a>') ?>
 				</div>
 				<div>
-					<button type="submit"></button>
+					<button type="submit"><strong><?php echo htmlspecialchars(Flux::message('AccountCreateButton')) ?></strong></button>
 				</div>
 			</td>
 		</tr>
 	</table>
 </form>
-
-    </div>
+</div>
 </div>

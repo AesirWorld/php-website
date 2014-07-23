@@ -1,8 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-
 <div class="box3">
-	<div class="title">Ranking <span class="text_highlight">de Personagens</span></div>
-	<div class="content">
+<div class="title">Character Ranking</div>
+<div class="content">
 <h3>
 	Top <?php echo number_format($limit=(int)Flux::config('CharRankingLimit')) ?> Characters
 	<?php if (!is_null($jobClass)): ?>
@@ -24,7 +23,7 @@
 			</option>
 		<?php endforeach ?>
 		</select>
-		
+
 		<input type="submit" value="Filter" />
 		<input type="button" value="Reset" onclick="reload()" />
 	</p>

@@ -215,12 +215,12 @@ class Flux_Dispatcher {
 
 		if (!$session->isLoggedIn()) {
 			if (Flux::config('UseCleanUrls')) {
-				$loginURL = sprintf('%s/%s/%s/?return_url=%s',
-					$baseURI, $loginModule, $loginAction, rawurlencode($_SERVER['REQUEST_URI']));
+				$loginURL = sprintf('%s/%s/%s/%s/?return_url=%s',
+					$baseURI, Flux::$languageUrl, $loginModule, $loginAction, rawurlencode($_SERVER['REQUEST_URI']));
 			}
 			else {
-				$loginURL = sprintf('%s/?module=%s&action=%s&return_url=%s',
-					$baseURI, rawurlencode($loginModule), rawurlencode($loginAction), rawurlencode($_SERVER['REQUEST_URI']));
+				$loginURL = sprintf('%s/%s/?module=%s&action=%s&return_url=%s',
+					$baseURI, Flux::$languageUrl, rawurlencode($loginModule), rawurlencode($loginAction), rawurlencode($_SERVER['REQUEST_URI']));
 			}
 
 			$session->setMessageData($message);

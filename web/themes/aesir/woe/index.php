@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title"><?php echo htmlspecialchars(Flux::message('WoeHeading')) ?></div>
-	<div class="content">
+<div class="title"><?php echo htmlspecialchars(Flux::message('WoeHeading')) ?></div>
+<div class="content">
 <?php if ($woeTimes): ?>
 <p><?php echo htmlspecialchars(sprintf(Flux::message('WoeInfo'), $session->loginAthenaGroup->serverName)) ?></p>
 <p><?php echo htmlspecialchars(Flux::message('WoeServerTimeInfo')) ?> <strong class="important"><?php echo $server->getServerTime('Y-m-d H:i:s (l)') ?></strong>.</p>
@@ -12,10 +12,12 @@
 	</tr>
 	<?php foreach ($woeTimes as $serverName => $times): ?>
 	<tr>
-		<td class="server" rowspan="<?php echo count($times) ?>">
+		<td class="server" rowspan="<?php echo count($times)+1 ?>">
 			<?php echo htmlspecialchars($serverName)  ?>
 		</td>
-		<?php foreach ($times as $time): ?>
+	</tr>
+	<?php foreach ($times as $time): ?>
+	<tr>
 		<td class="time">
 			<?php echo htmlspecialchars($time['startingDay']) ?>
 			@ <?php echo htmlspecialchars($time['startingHour']) ?>
@@ -26,9 +28,7 @@
 			@ <?php echo htmlspecialchars($time['endingHour']) ?>
 		</td>
 	</tr>
-	<tr>
-		<?php endforeach ?>
-	</tr>
+	<?php endforeach ?>
 	<?php endforeach ?>
 </table>
 <?php else: ?>

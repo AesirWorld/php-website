@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Logins</div>
-	<div class="content">
+<div class="title">Logins</div>
+<div class="content">
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module'), $params->get('action')) ?>
@@ -36,7 +36,7 @@
 			<option value="<?php echo $errorCode ?>"<?php if (ctype_digit($params->get('error_code')) && $params->get('error_code') == $errorCode) echo ' selected="selected"' ?>><?php echo htmlspecialchars($errorType) ?></option>
 		<?php endforeach ?>
 		</select>
-		
+
 		<input type="submit" value="Search" />
 		<input type="button" value="Reset" onclick="reload()" />
 	</p>
@@ -67,7 +67,13 @@
 		<?php if ($showPassword && $seePassword): ?>
 		<td><?php echo htmlspecialchars($login->password) ?></td>
 		<?php endif ?>
-		<td><?php echo htmlspecialchars($login->ip) ?></td>
+		<td>
+			<?php if ($auth->actionAllowed('account', 'index')): ?>
+				<?php echo $this->linkToAccountSearch(array('last_ip' => $login->ip), $login->ip) ?>
+			<?php else: ?>
+				<?php echo htmlspecialchars($login->ip) ?>
+			<?php endif ?>
+		</td>
 		<td><?php echo $this->formatDateTime($login->login_date) ?></td>
 		<td>
 			<?php if (!is_null($login->error_code)): ?>

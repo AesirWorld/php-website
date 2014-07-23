@@ -854,7 +854,10 @@ class Flux_Template {
 	public function redirect($location = null)
 	{
 		if (is_null($location)) {
-			$location = $this->basePath;
+			$location = $this->basePath . Flux::$languageUrl;
+		}
+		else {
+			$location = Flux::$languageUrl . '/' . $location;
 		}
 
 		header("Location: $location");

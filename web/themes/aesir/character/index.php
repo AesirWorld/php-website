@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Personagens</div>
-	<div class="content">
+<div class="title">Characters</div>
+<div class="content">
 <p class="toggler"><a href="javascript:toggleSearchForm()">Search...</a></p>
 <form action="<?php echo $this->url ?>" method="get" class="search-form">
 	<?php echo $this->moduleActionFormInputs($params->get('module')) ?>
@@ -59,7 +59,7 @@
 		<label for="child">Child:</label>
 		<input type="text" name="child" id="child" value="<?php echo htmlspecialchars($params->get('child')) ?>" />
 	</p>
-	<p>	
+	<p>
 		<label for="online">Online Status:</label>
 		<select name="online" id="online">
 			<option value=""<?php if (!($online=$params->get('online'))) echo ' selected="selected"' ?>>All</option>
@@ -74,7 +74,7 @@
 			<option value="lt"<?php if ($slot_op == 'lt') echo ' selected="selected"' ?>>is less than</option>
 		</select>
 		<input type="text" name="slot" id="slot" value="<?php echo htmlspecialchars($params->get('slot')) ?>" />
-		
+
 		<input type="submit" value="Search" />
 		<input type="button" value="Reset" onclick="reload()" />
 	</p>
@@ -198,4 +198,5 @@
 <?php else: ?>
 <p>No characters found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div></div>
+</div>
+</div>

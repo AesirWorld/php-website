@@ -771,5 +771,35 @@ return array(
 	'AccDetailsTitle' => 'Account Details',
 	// - account/create
 	'RegisterPageTitle' => 'Account Create',
+
+	//Extra text translations
+	// - account
+	'account' => array(
+		'create' => array(
+			'WorkingEmail' => 'You will need to provide a working e-mail address to confirm your account before you can log-in.',
+			'PasswordLen'  => 'Your password must be between %d and %d characters.'
+		),
+	),
+	// - character
+	'character' => array(
+		'changeslot' => array(
+			'title' => 'Change Character Slot',
+			'label1'  => 'Character Name',
+			'slotsAvail' => 'You may input a slot number between 1 and %d.'
+		),
+		'prefs' => array(
+			'title' => 'Preferences',
+			'viewingCharcter' => 'Viewing character preferences for “%s” on %s',
+			'onlineText' => 'Hide Character From "Who\'s Online"',
+			'onlineLabel' => 'This will hide %s altogether from the "Who\'s Online" page.',
+			'mapText' => 'Hide Current Map From "Who\'s Online"',
+			'mapLabel' => 'This will hide %s\'s current location from the "Who\'s Online" page.',
+			'zenyYext' => 'Hide Character From "Zeny Ranking"',
+			'zenyLabel' => 'This will hide %s from the "Zeny Ranking" page.',
+			'onlineText' => 'Hide Character From "Who\'s Online"',
+			'onlineLabel' => 'This will hide %s altogether from the "Who\'s Online" page.',
+			'submit' => 'Save'
+		),
+	),
 );
 ?>

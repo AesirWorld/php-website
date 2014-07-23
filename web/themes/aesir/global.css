@@ -1,29 +1,28 @@
 @font-face {
-	font-family: 'Helvetica-CondensedLight';
-	src: url('fonts/HelveticaCdLt.eot');
-	src: local('☺'), url('fonts/HelveticaCdLt.woff') format('woff'), url('fonts/HelveticaCdLt.ttf') format('truetype'), url('fonts/HelveticaCdLt.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Helvetica-CondensedLight';
+    src: url('fonts/HelveticaCdLt.eot');
+    src: local('☺'), url('fonts/HelveticaCdLt.woff') format('woff'), url('fonts/HelveticaCdLt.ttf') format('truetype'), url('fonts/HelveticaCdLt.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
-	font-family: 'Helvetica-Condensed-Black-Se';
-	src: url('fonts/HelveticaCdBlk.eot');
-	src: local('☺'), url('fonts/HelveticaCdBlk.woff') format('woff'), url('fonts/HelveticaCdBlk.ttf') format('truetype'), url('fonts/HelveticaCdBlk.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Helvetica-Condensed-Black-Se';
+    src: url('fonts/HelveticaCdBlk.eot');
+    src: local('☺'), url('fonts/HelveticaCdBlk.woff') format('woff'), url('fonts/HelveticaCdBlk.ttf') format('truetype'), url('fonts/HelveticaCdBlk.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 body {
-/*    background: url(images/bg-with-logo.jpg) no-repeat center 0px #00a8c5; */
-	background: #00a8c5;
+    background: #00a8c5;
     font-family: 'Helvetica-CondensedLight';
     color: #7d7d7d;
     font-size: 14px;
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 .top {
     width: 960px;
-	height: 265px;
+    height: 265px;
     margin: 0 auto;
 }
 .top .menu {
@@ -43,8 +42,8 @@ body {
     margin: 0px 25px;
 }
 .top .menu > a:hover {
-	color:#000;
-	transition: all 0.3s ease-out;
+    color:#000;
+    transition: all 0.3s ease-out;
 }
 .top .login {
     position:relative;
@@ -97,10 +96,10 @@ body {
     color: #fff;
     margin-top: 6px;
     margin-bottom:10px;
-	cursor:pointer;
+    cursor:pointer;
 }
 .top .login .form a {
-	color:#fff;
+    color:#fff;
 }
 .top .login .panel strong {
     display:block;
@@ -141,39 +140,39 @@ body {
     color: #fff;
 }
 .top .logo {
-	background:url('images/logo-high-qual.png') no-repeat;
-	width:320px;
-	height:170px;
-	margin-top:5px;
-	cursor:pointer;
+    background:url('images/logo-high-qual.png') no-repeat;
+    width:320px;
+    height:170px;
+    margin-top:5px;
+    cursor:pointer;
 }
 .lang {
-	background:#00879E;
-	border-radius:4px;
-	margin-top:15px;
-	height:20px;
-	padding:0px 8px;
-	float:left;
+    background:#00879E;
+    border-radius:4px;
+    margin-top:15px;
+    height:20px;
+    padding:0px 8px;
+    float:left;
 }
 .top .lang a {
-	opacity:0.7;
-	width:16px;
-	height:11px;
-	display:inline-block;
-	margin:4px 4px 0px 4px;
+    opacity:0.7;
+    width:16px;
+    height:11px;
+    display:inline-block;
+    margin:4px 4px 0px 4px;
 }
 .top .lang a:hover {
-	opacity:1;
-	transition: all 0.3s ease-out;
+    opacity:1;
+    transition: all 0.3s ease-out;
 }
 .top .lang .en {
-	background:url('images/flags/16/us.png') no-repeat;
+    background:url('images/flags/16/us.png') no-repeat;
 }
 .top .lang .br {
-	background:url('images/flags/16/br.png') no-repeat;
+    background:url('images/flags/16/br.png') no-repeat;
 }
 .top .lang .es {
-	background:url('images/flags/16/es.png') no-repeat;
+    background:url('images/flags/16/es.png') no-repeat;
 }
 .middle {
     width: 960px;
@@ -412,8 +411,8 @@ body {
 .bottom .logo {
     width: 80px;
     height: 43px;
-	background:url('images/logo-high-qual.png') no-repeat;
-	background-size: contain;
+    background:url('images/logo-high-qual.png') no-repeat;
+    background-size: contain;
     margin: 13px 20px;
     float: left;
 }

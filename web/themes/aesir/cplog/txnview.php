@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 <div class="box3">
-	<div class="title">Visualizando Detalhes de Transação</div>
-	<div class="content">
+<div class="title">Viewing PayPal Transaction Details</div>
+<div class="content">
 <?php if ($txn): ?>
 <p>If the transaction contains negative payment and settle amounts, it is likely there was a chargeback and the donor was reimbursed.</p>
 <table class="vertical-table">
@@ -70,7 +70,7 @@
 	<pre class="raw-txn-log"><?php echo htmlspecialchars($txnFileLog) ?></pre>
 	<?php else: ?>
 	<p>The raw log for this transaction could not be found.</p>
-	<?php endif ?>	
+	<?php endif ?>
 
 	<?php else: ?>
 	<p>Records indicate that such a transaction was never recorded. <a href="javascript:history.go(-1)">Go back</a>.</p>

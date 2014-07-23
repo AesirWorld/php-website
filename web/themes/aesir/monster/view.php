@@ -1,7 +1,7 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-<div class="box3 hide_left_container">
-	<div class="title">Monster</div>
-	<div class="content">
+<div class="box3">
+<div class="title">Viewing Monster</div>
+<div class="content">
 <?php if ($monster): ?>
 <h3>
 	#<?php echo $monster->monster_id ?>: <?php echo htmlspecialchars($monster->iro_name) ?>
@@ -234,4 +234,5 @@
 <?php else: ?>
 <p>No such monster was found. <a href="javascript:history.go(-1)">Go back</a>.</p>
 <?php endif ?>
-</div></div>
+</div>
+</div>
