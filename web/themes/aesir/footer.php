@@ -36,7 +36,11 @@
 	<div class="text">
 	AESIRWORLD.COM &copy; 2014<br/>
 	Ragnarok Online - Gravity Corp. & LeeMyougjin<br/>
-	Open-Source Project
+	Open-Source Project<br/>
+	<strong style="cursor:default" title="<?php
+		echo "Time: " . round(microtime(true) - __START__, 3) .  " sec.</br>";
+		echo "Queries: " . (int)Flux::$numberOfQueries . ".";
+	?>">?</strong>
 	</div>
 	<div class="logo2"></div>
 </div>
