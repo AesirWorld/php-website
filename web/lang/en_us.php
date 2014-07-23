@@ -796,8 +796,6 @@ return array(
 			'mapLabel' => 'This will hide %s\'s current location from the "Who\'s Online" page.',
 			'zenyYext' => 'Hide Character From "Zeny Ranking"',
 			'zenyLabel' => 'This will hide %s from the "Zeny Ranking" page.',
-			'onlineText' => 'Hide Character From "Who\'s Online"',
-			'onlineLabel' => 'This will hide %s altogether from the "Who\'s Online" page.',
 			'submit' => 'Save'
 		),
 	),

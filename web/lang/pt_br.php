@@ -771,5 +771,33 @@ return array(
     'AccDetailsTitle' => 'Detalhes da Conta',
     // - account/create
     'RegisterPageTitle' => 'Criar Conta',
+
+    //Extra text translations
+    // - account
+    'account' => array(
+        'create' => array(
+            'WorkingEmail' => 'Você precisará prover um e-mail válido para finalizar processo de confirmação de conta.',
+            'PasswordLen'  => 'Sua senha precisa ter entre %d e %d carácteres.'
+        ),
+    ),
+    // - character
+    'character' => array(
+        'changeslot' => array(
+            'title' => 'Mudar Slot do Personagem',
+            'label1'  => 'Nome do Personagem',
+            'slotsAvail' => 'Você pode digitar um número entre 1 e %d.'
+        ),
+        'prefs' => array(
+            'title' => 'Preferências',
+            'viewingCharcter' => 'Visualizando preferências de personagem: “%s” em %s',
+            'onlineText' => 'Esconder personagem do "Quem Está Online"',
+            'onlineLabel' => 'Está opção irá esconder o personagem %s da página "Quem Está Online".',
+            'mapText' => 'Esconder mapa atual do  "Quem Está Online"',
+            'mapLabel' => 'Está opção irá esconder a posição atual do personagem %s da página "Quem Está Online".',
+            'zenyYext' => 'Esconder personagem do "Ranking de Zeny"',
+            'zenyLabel' => 'Está opção irá esconder o personagem %s do "Ranking de Zeny".',
+            'submit' => 'Salvar'
+        ),
+    ),
 );
 ?>

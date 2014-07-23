@@ -786,5 +786,33 @@ return array(
 	'AccDetailsTitle' => 'Detalles de la Cuenta',
 	// - account/create
 	'RegisterPageTitle' => 'Crear Una Cuenta',
+
+	//Extra text translations
+	// - account
+	'account' => array(
+		'create' => array(
+			'WorkingEmail' => 'Usted tendrá que proporcionar una dirección de correo electrónico de trabajo para confirmar su cuenta antes de poder acceder al jogo.',
+			'PasswordLen'  => 'La contraseña debe tener entre %d y %d caracteres.'
+		),
+	),
+	// - character
+	'character' => array(
+		'changeslot' => array(
+			'title' => 'Cambiar Slot Carácter',
+			'label1'  => 'Cambiar Nombre',
+			'slotsAvail' => 'Puede introducir un número de ranura entre 1 y %d.'
+		),
+		'prefs' => array(
+			'title' => 'Preferencias',
+			'viewingCharcter' => 'Visualización de las preferencias de "%s" en %s',
+			'onlineText' => 'Ocultar personaje del "Quién Está Online".',
+			'onlineLabel' => 'Esto ocultará %s de la página de "Quién Está Online".',
+			'mapText' => 'Ocultar mapa actual en "Quién Está Online"',
+			'mapLabel' => 'Esto ocultará %s ubicación actual del "Quién Está Online".',
+			'zenyYext' => 'Ocultar personaje del "Zeny Ranking"',
+			'zenyLabel' => 'Esto ocultará %s del "Ranking de Zeny".',
+			'submit' => 'Guardar'
+		),
+	),
 );
 ?>
