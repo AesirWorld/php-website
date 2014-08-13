@@ -9,7 +9,7 @@ header("HTTP/1.1 404 Page Not Found");
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Critical Error</title>
+		<title>404 - Page Not Found</title>
 		<style type="text/css" media="screen">
 			@font-face {
 				font-family: 'Apple-Chancery';
