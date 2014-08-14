@@ -45,7 +45,7 @@ header("HTTP/1.1 404 Page Not Found");
 		<h1>404 - page not found</h1>
 		<h2>try hiting the return button...</h2>
 		<img alt="" src="/themes/aesir/images/gophers-working-pink.png"></img>
-		<h3>maybe our gopher are still working to get this page up.</h3>
+		<h3>maybe our gophers are still working to get this page up.</h3>
 		</center>
 	</body>
 </html>
