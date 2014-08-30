@@ -199,8 +199,8 @@
 			<div class="form border-radius">
 				<form action="<?php echo $this->url('account', 'login', array('return_url' => $params->get('return_url'))) ?>" method="post">
 					<input type="hidden" name="server" value="FluxRO">
-					<input type="text" name="username" pattern=".{4,}" required placeholder="<?php echo htmlspecialchars(Flux::message('LoginInputUserLabel')) ?>" />
-					<input type="password" name="password" pattern=".{4,}" required placeholder="<?php echo htmlspecialchars(Flux::message('LoginInputPassLabel')) ?>" />
+					<input type="text" name="username" pattern=".{4,24}" required placeholder="<?php echo htmlspecialchars(Flux::message('LoginInputUserLabel')) ?>" />
+					<input type="password" name="password" pattern=".{4,24}" required placeholder="<?php echo htmlspecialchars(Flux::message('LoginInputPassLabel')) ?>" />
 					<div class="forgot" style="cursor:pointer"><a href="/account/resetpass"><?php echo htmlspecialchars(Flux::message('LoginForgotPassLabel')) ?></a></div>
 					<input type="submit" value="<?php echo htmlspecialchars(Flux::message('LoginSubmitLabel')) ?>" />
 					<input type="button" value="<?php echo htmlspecialchars(Flux::message('LoginRegisterLabel')) ?>" onclick="window.location='/account/create';" />

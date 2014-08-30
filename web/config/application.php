@@ -48,9 +48,9 @@ return array(
                                                         // WARNING: This string isn't escaped so be careful which chars you use!
                                                         // PCRE Pattern Ref: http://php.net/manual/en/pcre.pattern.php
 	'MinUsernameLength'    => 4,                        // Minimum username length.
-	'MaxUsernameLength'    => 23,                       // Maximum username length.
+	'MaxUsernameLength'    => 24,                       // Maximum username length.
 	'MinPasswordLength'    => 8,                        // Minimum password length.
-	'MaxPasswordLength'    => 31,                       // Maximum password length.
+	'MaxPasswordLength'    => 24,                       // Maximum password length.
 	'PasswordMinUpper'     => 1,                        // Number of upper-case letters to require in passwords.
 	'PasswordMinLower'     => 1,                        // Number of lower-case letters to require in passwords.
 	'PasswordMinNumber'    => 1,                        // Number of numbers to require in passwords.
