@@ -20,7 +20,7 @@ return array(
 	'CacheTimeHigh'        => 3600,         //Default cache max-age for pages that should be updated not regularly, like, /items/index module
 	'CacheTimeOneDay'      => 86400,         //One day cache time pages, like, /items/view
 	        								//Caches should not be forever, because of theme changes.
-	'DefaultLanguage'      => $langDefault ? $langDefault : 'en',                  // Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
+	'DefaultLanguage'      => $defaultLang ? $defaultLang : 'en',                  // Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
 	'SiteTitle'            => 'Aesir World',     // This value is only used if the theme decides to use it.
 	'ThemeName'            => 'aesir', // Names of the themes you would like to use.  Themes are in FLUX_ROOT/themes. First theme listed will be default theme.
 	'ScriptTimeLimit'      => 0,                        // Script execution time limit. Specifies (in seconds) how long a page should run before timing out. (0 means forever)
