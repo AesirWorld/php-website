@@ -55,14 +55,14 @@ $matchCountryLang = array(
 );
 
 $countryCode = isset($_SERVER["HTTP_CF_IPCOUNTRY"]) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "DEFAULT";
-$defaultLang = $matchCountryLang[$countryCode];
+$GLOBALS['defaultLang'] = $matchCountryLang[$countryCode];
 
 if($_SERVER['REQUEST_URI'] == "/") {
 	//Disable cache
 	header("Cache-Control: private, max-age=0, no-cache, must-revalidate");
 
 	//Route
-	header("Location: /".$defaultLang);
+	header("Location: /".$GLOBALS['defaultLang']);
 	exit;
 }
 
