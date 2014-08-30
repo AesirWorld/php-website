@@ -44,20 +44,20 @@ if (ini_get('magic_quotes_gpc')) {
 //This is an optimzation code, its hacky, but works for now.
 //You can remove this code, Flux will still route to the default language, but it will do ~30x less req/sec.
 //I'll probablly also add this code in nginx :)
+//Create a hashtable, remember, all other will default to english language
+$matchCountryLang = array(
+	"DEFAULT" => "en",
+	"BR" => "br",
+	"ES" => "es", "MX" => "es", "CO" => "es", "AR" => "es", "PE" => "es",
+	"VE" => "es", "CL" => "es", "GT" => "es", "CU" => "es", "BO" => "es",
+	"DO" => "es", "HN" => "es", "PY" => "es", "SV" => "es", "NI" => "es",
+	"CR" => "es", "PA" => "es", "UY" => "es", "GQ" => "es", "PR" => "es",
+);
+
+$countryCode = isset($_SERVER["HTTP_CF_IPCOUNTRY"]) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "DEFAULT";
+$langDefault = $matchCountryLang[$countryCode];
+
 if($_SERVER['REQUEST_URI'] == "/") {
-	//Create a hashtable, remember, all other will default to english language
-	$matchCountryLang = array(
-		"DEFAULT" => "en",
-		"BR" => "br",
-		"ES" => "es", "MX" => "es", "CO" => "es", "AR" => "es", "PE" => "es",
-		"VE" => "es", "CL" => "es", "GT" => "es", "CU" => "es", "BO" => "es",
-		"DO" => "es", "HN" => "es", "PY" => "es", "SV" => "es", "NI" => "es",
-		"CR" => "es", "PA" => "es", "UY" => "es", "GQ" => "es", "PR" => "es",
-	);
-
-	$countryCode = isset($_SERVER["HTTP_CF_IPCOUNTRY"]) ? $_SERVER["HTTP_CF_IPCOUNTRY"] : "DEFAULT";
-	$langDefault = $matchCountryLang[$countryCode];
-
 	//Disable cache
 	header("Cache-Control: private, max-age=0, no-cache, must-revalidate");
 
@@ -69,6 +69,7 @@ if($_SERVER['REQUEST_URI'] == "/") {
 	}
 	exit;
 }
+
 
 //Cloudflare real-ip
 if(isset($_SERVER['CF-Connecting-IP'])) {
