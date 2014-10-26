@@ -56,7 +56,15 @@ $matchCountryLang = array(
 
 // NOTE: Dont forget to strtoupper() on the header, or else we may get a redirect loop 
 $countryCode = isset($_SERVER["HTTP_CF_IPCOUNTRY"]) ? strtoupper($_SERVER["HTTP_CF_IPCOUNTRY"]) : "DEFAULT";
-$GLOBALS['defaultLang'] = $matchCountryLang[$countryCode];
+
+// Check if country is mapped to an language
+if(isset($matchCountryLang[$countryCode])) {
+	$GLOBALS['defaultLang'] = $matchCountryLang[$countryCode];
+}
+// Else, set to default lang
+else {
+	$GLOBALS['defaultLang'] = $matchCountryLang["DEFAULT"];
+}
 
 if($_SERVER['REQUEST_URI'] == "/") {
 	//Disable cache
